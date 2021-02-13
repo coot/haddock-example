@@ -18,7 +18,7 @@ Build instructions
 To build the docs directory:
 
 ```
-mkdir docs
+rm rf docs/*
 cabal haddock --with-compiler GHC_9 --with-haddock=${HADDOCK} --haddock-html --haddock-quickjump all
 cp -r dist-newstyle/build/x86_64-linux/ghc-9.0.1/package-a-0.1.0.0/doc/html/package-a/ docs
 cp -r dist-newstyle/build/x86_64-linux/ghc-9.0.1/package-b-0.1.0.0/doc/html/package-b/ docs
