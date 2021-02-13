@@ -26,3 +26,7 @@ ${HADDOCK} -o docs --quickjump --gen-index --gen-contents --read-interface=packa
 ```
 
 And serve `docs` with some http server, e.g. `http-server docs`.
+
+## Notes
+
+`--read-interface=PATH,...`: the `PATH` must be relative url of a package it points to (relative to `docs` directory).
