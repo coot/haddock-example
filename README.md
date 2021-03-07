@@ -22,7 +22,7 @@ rm rf docs/*
 cabal haddock --with-compiler GHC_9 --with-haddock=${HADDOCK} --haddock-html --haddock-quickjump all
 cp -r dist-newstyle/build/x86_64-linux/ghc-9.0.1/package-a-0.1.0.0/doc/html/package-a/ docs
 cp -r dist-newstyle/build/x86_64-linux/ghc-9.0.1/package-b-0.1.0.0/doc/html/package-b/ docs
-${HADDOCK} -o docs --quickjump --gen-index --gen-contents --read-interface=package-a,docs/package-a/package-a .haddock --read-interface=package-b,docs/package-b/package-b.haddock
+${HADDOCK} -o docs --quickjump --gen-index --gen-contents --read-interface=package-a,docs/package-a/package-a.haddock --read-interface=package-b,docs/package-b/package-b.haddock
 ```
 
 And serve `docs` with some http server, e.g. `http-server docs`.
