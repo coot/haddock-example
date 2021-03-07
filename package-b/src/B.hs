@@ -1,5 +1,12 @@
-module B (b) where
+module B (b,c) where
 
--- | b doc
+import A (a)
+
+-- | b doc, check out 'a' or 'c'
+--
+--
 b :: IO ()
 b = putStrLn "someFunc"
+
+c :: IO ()
+c = putStrLn ":)"

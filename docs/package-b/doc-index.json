@@ -1,1 +1,1 @@
-[{"display_html":"<a href=\"#v:b\">b</a> :: <a href=\"file:///home/coot/.ghcup/ghc/9.0.1/share/doc/ghc-9.0.1/html/libraries/base-4.15.0.0/System-IO.html#t:IO\" title=\"System.IO\">IO</a> ()","name":"b","module":"B","link":"B.html#v:b"}]
+[{"display_html":"<a href=\"#v:b\">b</a> :: <a href=\"../base/System-IO.html#t:IO\" title=\"System.IO\">IO</a> ()","name":"b","module":"B","link":"B.html#v:b"},{"display_html":"<a href=\"#v:c\">c</a> :: <a href=\"../base/System-IO.html#t:IO\" title=\"System.IO\">IO</a> ()","name":"c","module":"B","link":"B.html#v:c"}]
