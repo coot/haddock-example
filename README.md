@@ -25,6 +25,11 @@ cp -r dist-newstyle/build/x86_64-linux/ghc-9.0.1/package-b-0.1.0.0/doc/html/pack
 ${HADDOCK} -o docs --quickjump --gen-index --gen-contents --read-interface=package-a,docs/package-a/package-a.haddock --read-interface=package-b,docs/package-b/package-b.haddock
 ```
 
+To include `base` documentation, copy `base` docs from `~/.ghcup/.ghc/9.0.1/share/doc/ghc-9.0.1/html/librarires/base-4.15.0.0` to `docs/base` and also include `--read-interface` option:
+```
+${HADDOCK} -o docs --quickjump --gen-index --gen-contents --read-interface=package-a,docs/package-a/package-a.haddock --read-interface=package-b,docs/package-b/package-b.haddock --read-interface=base,${HOME}/.ghcup/ghc/9.0.1/share/doc/ghc-9.0.1/html/libraries/base-4.15.0.0/base.haddock
+```
+
 And serve `docs` with some http server, e.g. `http-server docs`.
 
 ## Notes
