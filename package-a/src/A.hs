@@ -1,6 +1,6 @@
-module A (a) where
+module A (someFunctionA) where
 
--- | a doc
+-- | 'someFunctionA' doc
 --
-a :: IO ()
-a = putStrLn "someFunc"
+someFunctionA :: IO ()
+someFunctionA = putStrLn "someFunc"

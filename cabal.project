@@ -4,7 +4,7 @@ packages: ./package-a
 jobs: 1
 
 package package-a
-  haddock-options: --lib=/home/coot/repos/haskell/ghc/utils/haddock/haddock-api/resources/ --use-index=../doc-index.html --use-contents=../index.html --base-url=..
+  haddock-options: --lib=/home/coot/repos/ghc/utils/haddock/haddock-api/resources/ --use-index=../doc-index.html --use-contents=../index.html --base-url=..
 
 package package-b
-  haddock-options: --lib=/home/coot/repos/haskell/ghc/utils/haddock/haddock-api/resources/ --use-index=../doc-index.html --use-contents=../index.html --base-url=..
+  haddock-options: --lib=/home/coot/repos/ghc/utils/haddock/haddock-api/resources/ --use-index=../doc-index.html --use-contents=../index.html --base-url=..
