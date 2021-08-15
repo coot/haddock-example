@@ -35,8 +35,8 @@
 <a name="line-26"></a><span class='hs-comment'>-- returns a list of the program's command line arguments, starting with the</span>
 <a name="line-27"></a><span class='hs-comment'>-- program name, and including those normally eaten by the RTS (+RTS ... -RTS).</span>
 <a name="line-28"></a><span class='hs-definition'>getFullArgs</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>IO</span> <span class='hs-keyglyph'>[</span><span class='hs-conid'>String</span><span class='hs-keyglyph'>]</span>
-<a name="line-29"></a><span class='hs-definition'>getFullArgs</span> <span class='hs-keyglyph'>=</span> <span class='hs-keyword'>do</span>
-<a name="line-30"></a>  <span class='hs-varid'>alloca</span> <span class='hs-varop'>$</span> <span class='hs-keyglyph'>\</span> <span class='hs-varid'>p_argc</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-keyword'>do</span>
+<a name="line-29"></a><span class='hs-definition'>getFullArgs</span> <span class='hs-keyglyph'>=</span>
+<a name="line-30"></a>  <span class='hs-varid'>alloca</span> <span class='hs-varop'>$</span> <span class='hs-keyglyph'>\</span> <span class='hs-varid'>p_argc</span> <span class='hs-keyglyph'>-&gt;</span>
 <a name="line-31"></a>    <span class='hs-varid'>alloca</span> <span class='hs-varop'>$</span> <span class='hs-keyglyph'>\</span> <span class='hs-varid'>p_argv</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-keyword'>do</span>
 <a name="line-32"></a>        <span class='hs-varid'>getFullProgArgv</span> <span class='hs-varid'>p_argc</span> <span class='hs-varid'>p_argv</span>
 <a name="line-33"></a>        <span class='hs-varid'>p</span>    <span class='hs-keyglyph'>&lt;-</span> <span class='hs-varid'>fromIntegral</span> <span class='hs-varop'>`liftM`</span> <span class='hs-varid'>peek</span> <span class='hs-varid'>p_argc</span>

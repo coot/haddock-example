@@ -182,7 +182,7 @@
 <a name="line-173"></a><span class='hs-comment'>-- @IO Int -&gt; (ArithException -&gt; IO Int) -&gt; IO Int@ then the handler may</span>
 <a name="line-174"></a><span class='hs-comment'>-- get run with @DivideByZero@ as an argument, or an @ErrorCall \"urk\"@</span>
 <a name="line-175"></a><span class='hs-comment'>-- exception may be propagated further up. If you call it again, you</span>
-<a name="line-176"></a><span class='hs-comment'>-- might get a the opposite behaviour. This is ok, because 'catch' is an</span>
+<a name="line-176"></a><span class='hs-comment'>-- might get the opposite behaviour. This is ok, because 'catch' is an</span>
 <a name="line-177"></a><span class='hs-comment'>-- 'IO' computation.</span>
 <a name="line-178"></a><span class='hs-comment'>--</span>
 <a name="line-179"></a><span class='hs-definition'>catch</span>   <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Exception</span> <span class='hs-varid'>e</span>

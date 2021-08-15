@@ -89,100 +89,100 @@
 <a name="line-80"></a><span class='hs-keyword'>import</span> <span class='hs-keyword'>qualified</span> <span class='hs-conid'>GHC.List</span> <span class='hs-keyword'>as</span> <span class='hs-conid'>List</span> <span class='hs-layout'>(</span> <span class='hs-varid'>foldr</span> <span class='hs-layout'>)</span>
 <a name="line-81"></a><span class='hs-keyword'>import</span> <span class='hs-conid'>GHC.Tuple</span> <span class='hs-layout'>(</span><span class='hs-conid'>Solo</span> <span class='hs-layout'>(</span><span class='hs-keyglyph'>..</span><span class='hs-layout'>)</span><span class='hs-layout'>)</span>
 <a name="line-82"></a>
-<a name="line-83"></a><span class='hs-comment'>-- XXX: Missing haddock feature.  Links to anchors in other modules</span>
-<a name="line-84"></a><span class='hs-comment'>-- don't have a sensible way to name the link within the module itself.</span>
-<a name="line-85"></a><span class='hs-comment'>-- Thus, the below "Data.Traversable#overview" works well when shown as</span>
-<a name="line-86"></a><span class='hs-comment'>-- @Data.Traversable@ from other modules, but in the home module it should</span>
-<a name="line-87"></a><span class='hs-comment'>-- be possible to specify alternative link text. :-(</span>
+<a name="line-83"></a><span class='hs-comment'>-- $setup</span>
+<a name="line-84"></a><span class='hs-comment'>-- &gt;&gt;&gt; import Prelude</span>
+<a name="line-85"></a><span class='hs-comment'>-- &gt;&gt;&gt; import Data.Maybe (catMaybes, mapMaybe)</span>
+<a name="line-86"></a><span class='hs-comment'>-- &gt;&gt;&gt; import Data.Either (rights)</span>
+<a name="line-87"></a><span class='hs-comment'>-- &gt;&gt;&gt; import Data.Foldable (traverse_)</span>
 <a name="line-88"></a>
-<a name="line-89"></a><a name="Traversable"></a><span class='hs-comment'>-- | Functors representing data structures that can be traversed from</span>
-<a name="line-90"></a><a name="Traversable"></a><span class='hs-comment'>-- left to right, performing an action on each element.</span>
-<a name="line-91"></a><a name="Traversable"></a><span class='hs-comment'>--</span>
-<a name="line-92"></a><a name="Traversable"></a><span class='hs-comment'>-- A more detailed description can be found in the overview section of</span>
-<a name="line-93"></a><a name="Traversable"></a><span class='hs-comment'>-- "Data.Traversable#overview".</span>
-<a name="line-94"></a><a name="Traversable"></a><span class='hs-comment'>--</span>
-<a name="line-95"></a><a name="Traversable"></a><span class='hs-keyword'>class</span> <span class='hs-layout'>(</span><span class='hs-conid'>Functor</span> <span class='hs-varid'>t</span><span class='hs-layout'>,</span> <span class='hs-conid'>Foldable</span> <span class='hs-varid'>t</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-conid'>Traversable</span> <span class='hs-varid'>t</span> <span class='hs-keyword'>where</span>
-<a name="line-96"></a>    <span class='hs-comment'>{-# MINIMAL traverse | sequenceA #-}</span>
-<a name="line-97"></a>
-<a name="line-98"></a>    <span class='hs-comment'>-- | Map each element of a structure to an action, evaluate these actions</span>
-<a name="line-99"></a>    <span class='hs-comment'>-- from left to right, and collect the results. For a version that ignores</span>
-<a name="line-100"></a>    <span class='hs-comment'>-- the results see 'Data.Foldable.traverse_'.</span>
-<a name="line-101"></a>    <span class='hs-comment'>--</span>
-<a name="line-102"></a>    <span class='hs-comment'>-- ==== __Examples__</span>
-<a name="line-103"></a>    <span class='hs-comment'>--</span>
-<a name="line-104"></a>    <span class='hs-comment'>-- Basic usage:</span>
-<a name="line-105"></a>    <span class='hs-comment'>--</span>
-<a name="line-106"></a>    <span class='hs-comment'>-- In the first two examples we show each evaluated action mapping to the</span>
-<a name="line-107"></a>    <span class='hs-comment'>-- output structure.</span>
-<a name="line-108"></a>    <span class='hs-comment'>--</span>
-<a name="line-109"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse Just [1,2,3,4]</span>
-<a name="line-110"></a>    <span class='hs-comment'>-- Just [1,2,3,4]</span>
+<a name="line-89"></a><span class='hs-comment'>-- XXX: Missing haddock feature.  Links to anchors in other modules</span>
+<a name="line-90"></a><span class='hs-comment'>-- don't have a sensible way to name the link within the module itself.</span>
+<a name="line-91"></a><span class='hs-comment'>-- Thus, the below "Data.Traversable#overview" works well when shown as</span>
+<a name="line-92"></a><span class='hs-comment'>-- @Data.Traversable@ from other modules, but in the home module it should</span>
+<a name="line-93"></a><span class='hs-comment'>-- be possible to specify alternative link text. :-(</span>
+<a name="line-94"></a>
+<a name="line-95"></a><a name="Traversable"></a><span class='hs-comment'>-- | Functors representing data structures that can be traversed from</span>
+<a name="line-96"></a><a name="Traversable"></a><span class='hs-comment'>-- left to right, performing an action on each element.</span>
+<a name="line-97"></a><a name="Traversable"></a><span class='hs-comment'>--</span>
+<a name="line-98"></a><a name="Traversable"></a><span class='hs-comment'>-- A more detailed description can be found in the overview section of</span>
+<a name="line-99"></a><a name="Traversable"></a><span class='hs-comment'>-- "Data.Traversable#overview".</span>
+<a name="line-100"></a><a name="Traversable"></a><span class='hs-comment'>--</span>
+<a name="line-101"></a><a name="Traversable"></a><span class='hs-keyword'>class</span> <span class='hs-layout'>(</span><span class='hs-conid'>Functor</span> <span class='hs-varid'>t</span><span class='hs-layout'>,</span> <span class='hs-conid'>Foldable</span> <span class='hs-varid'>t</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-conid'>Traversable</span> <span class='hs-varid'>t</span> <span class='hs-keyword'>where</span>
+<a name="line-102"></a>    <span class='hs-comment'>{-# MINIMAL traverse | sequenceA #-}</span>
+<a name="line-103"></a>
+<a name="line-104"></a>    <span class='hs-comment'>-- | Map each element of a structure to an action, evaluate these actions</span>
+<a name="line-105"></a>    <span class='hs-comment'>-- from left to right, and collect the results. For a version that ignores</span>
+<a name="line-106"></a>    <span class='hs-comment'>-- the results see 'Data.Foldable.traverse_'.</span>
+<a name="line-107"></a>    <span class='hs-comment'>--</span>
+<a name="line-108"></a>    <span class='hs-comment'>-- ==== __Examples__</span>
+<a name="line-109"></a>    <span class='hs-comment'>--</span>
+<a name="line-110"></a>    <span class='hs-comment'>-- Basic usage:</span>
 <a name="line-111"></a>    <span class='hs-comment'>--</span>
-<a name="line-112"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse id [Right 1, Right 2, Right 3, Right 4]</span>
-<a name="line-113"></a>    <span class='hs-comment'>-- Right [1,2,3,4]</span>
+<a name="line-112"></a>    <span class='hs-comment'>-- In the first two examples we show each evaluated action mapping to the</span>
+<a name="line-113"></a>    <span class='hs-comment'>-- output structure.</span>
 <a name="line-114"></a>    <span class='hs-comment'>--</span>
-<a name="line-115"></a>    <span class='hs-comment'>-- In the next examples, we show that 'Nothing' and 'Left' values short</span>
-<a name="line-116"></a>    <span class='hs-comment'>-- circuit the created structure.</span>
+<a name="line-115"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse Just [1,2,3,4]</span>
+<a name="line-116"></a>    <span class='hs-comment'>-- Just [1,2,3,4]</span>
 <a name="line-117"></a>    <span class='hs-comment'>--</span>
-<a name="line-118"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse (const Nothing) [1,2,3,4]</span>
-<a name="line-119"></a>    <span class='hs-comment'>-- Nothing</span>
+<a name="line-118"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse id [Right 1, Right 2, Right 3, Right 4]</span>
+<a name="line-119"></a>    <span class='hs-comment'>-- Right [1,2,3,4]</span>
 <a name="line-120"></a>    <span class='hs-comment'>--</span>
-<a name="line-121"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse (\x -&gt; if odd x then Just x else Nothing)  [1,2,3,4]</span>
-<a name="line-122"></a>    <span class='hs-comment'>-- Nothing</span>
+<a name="line-121"></a>    <span class='hs-comment'>-- In the next examples, we show that 'Nothing' and 'Left' values short</span>
+<a name="line-122"></a>    <span class='hs-comment'>-- circuit the created structure.</span>
 <a name="line-123"></a>    <span class='hs-comment'>--</span>
-<a name="line-124"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse id [Right 1, Right 2, Right 3, Right 4, Left 0]</span>
-<a name="line-125"></a>    <span class='hs-comment'>-- Left 0</span>
+<a name="line-124"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse (const Nothing) [1,2,3,4]</span>
+<a name="line-125"></a>    <span class='hs-comment'>-- Nothing</span>
 <a name="line-126"></a>    <span class='hs-comment'>--</span>
-<a name="line-127"></a>    <span class='hs-varid'>traverse</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Applicative</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-layout'>(</span><span class='hs-varid'>a</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>f</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>t</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>f</span> <span class='hs-layout'>(</span><span class='hs-varid'>t</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span>
-<a name="line-128"></a>    <span class='hs-comment'>{-# INLINE traverse #-}</span>  <span class='hs-comment'>-- See Note [Inline default methods]</span>
-<a name="line-129"></a>    <span class='hs-varid'>traverse</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>sequenceA</span> <span class='hs-varop'>.</span> <span class='hs-varid'>fmap</span> <span class='hs-varid'>f</span>
-<a name="line-130"></a>
-<a name="line-131"></a>    <span class='hs-comment'>-- | Evaluate each action in the structure from left to right, and</span>
-<a name="line-132"></a>    <span class='hs-comment'>-- collect the results. For a version that ignores the results</span>
-<a name="line-133"></a>    <span class='hs-comment'>-- see 'Data.Foldable.sequenceA_'.</span>
-<a name="line-134"></a>    <span class='hs-comment'>--</span>
-<a name="line-135"></a>    <span class='hs-comment'>-- ==== __Examples__</span>
-<a name="line-136"></a>    <span class='hs-comment'>--</span>
-<a name="line-137"></a>    <span class='hs-comment'>-- Basic usage:</span>
-<a name="line-138"></a>    <span class='hs-comment'>--</span>
-<a name="line-139"></a>    <span class='hs-comment'>-- For the first two examples we show sequenceA fully evaluating a</span>
-<a name="line-140"></a>    <span class='hs-comment'>-- a structure and collecting the results.</span>
-<a name="line-141"></a>    <span class='hs-comment'>--</span>
-<a name="line-142"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [Just 1, Just 2, Just 3]</span>
-<a name="line-143"></a>    <span class='hs-comment'>-- Just [1,2,3]</span>
+<a name="line-127"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse (\x -&gt; if odd x then Just x else Nothing)  [1,2,3,4]</span>
+<a name="line-128"></a>    <span class='hs-comment'>-- Nothing</span>
+<a name="line-129"></a>    <span class='hs-comment'>--</span>
+<a name="line-130"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; traverse id [Right 1, Right 2, Right 3, Right 4, Left 0]</span>
+<a name="line-131"></a>    <span class='hs-comment'>-- Left 0</span>
+<a name="line-132"></a>    <span class='hs-comment'>--</span>
+<a name="line-133"></a>    <span class='hs-varid'>traverse</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Applicative</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-layout'>(</span><span class='hs-varid'>a</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>f</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>t</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>f</span> <span class='hs-layout'>(</span><span class='hs-varid'>t</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span>
+<a name="line-134"></a>    <span class='hs-comment'>{-# INLINE traverse #-}</span>  <span class='hs-comment'>-- See Note [Inline default methods]</span>
+<a name="line-135"></a>    <span class='hs-varid'>traverse</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>sequenceA</span> <span class='hs-varop'>.</span> <span class='hs-varid'>fmap</span> <span class='hs-varid'>f</span>
+<a name="line-136"></a>
+<a name="line-137"></a>    <span class='hs-comment'>-- | Evaluate each action in the structure from left to right, and</span>
+<a name="line-138"></a>    <span class='hs-comment'>-- collect the results. For a version that ignores the results</span>
+<a name="line-139"></a>    <span class='hs-comment'>-- see 'Data.Foldable.sequenceA_'.</span>
+<a name="line-140"></a>    <span class='hs-comment'>--</span>
+<a name="line-141"></a>    <span class='hs-comment'>-- ==== __Examples__</span>
+<a name="line-142"></a>    <span class='hs-comment'>--</span>
+<a name="line-143"></a>    <span class='hs-comment'>-- Basic usage:</span>
 <a name="line-144"></a>    <span class='hs-comment'>--</span>
-<a name="line-145"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [Right 1, Right 2, Right 3]</span>
-<a name="line-146"></a>    <span class='hs-comment'>-- Right [1,2,3]</span>
+<a name="line-145"></a>    <span class='hs-comment'>-- For the first two examples we show sequenceA fully evaluating a</span>
+<a name="line-146"></a>    <span class='hs-comment'>-- a structure and collecting the results.</span>
 <a name="line-147"></a>    <span class='hs-comment'>--</span>
-<a name="line-148"></a>    <span class='hs-comment'>-- The next two example show 'Nothing' and 'Just' will short circuit</span>
-<a name="line-149"></a>    <span class='hs-comment'>-- the resulting structure if present in the input. For more context,</span>
-<a name="line-150"></a>    <span class='hs-comment'>-- check the 'Traversable' instances for 'Either' and 'Maybe'.</span>
-<a name="line-151"></a>    <span class='hs-comment'>--</span>
-<a name="line-152"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [Just 1, Just 2, Just 3, Nothing]</span>
-<a name="line-153"></a>    <span class='hs-comment'>-- Nothing</span>
-<a name="line-154"></a>    <span class='hs-comment'>--</span>
-<a name="line-155"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [Right 1, Right 2, Right 3, Left 4]</span>
-<a name="line-156"></a>    <span class='hs-comment'>-- Left 4</span>
+<a name="line-148"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [Just 1, Just 2, Just 3]</span>
+<a name="line-149"></a>    <span class='hs-comment'>-- Just [1,2,3]</span>
+<a name="line-150"></a>    <span class='hs-comment'>--</span>
+<a name="line-151"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [Right 1, Right 2, Right 3]</span>
+<a name="line-152"></a>    <span class='hs-comment'>-- Right [1,2,3]</span>
+<a name="line-153"></a>    <span class='hs-comment'>--</span>
+<a name="line-154"></a>    <span class='hs-comment'>-- The next two example show 'Nothing' and 'Just' will short circuit</span>
+<a name="line-155"></a>    <span class='hs-comment'>-- the resulting structure if present in the input. For more context,</span>
+<a name="line-156"></a>    <span class='hs-comment'>-- check the 'Traversable' instances for 'Either' and 'Maybe'.</span>
 <a name="line-157"></a>    <span class='hs-comment'>--</span>
-<a name="line-158"></a>    <span class='hs-varid'>sequenceA</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Applicative</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-varid'>t</span> <span class='hs-layout'>(</span><span class='hs-varid'>f</span> <span class='hs-varid'>a</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>f</span> <span class='hs-layout'>(</span><span class='hs-varid'>t</span> <span class='hs-varid'>a</span><span class='hs-layout'>)</span>
-<a name="line-159"></a>    <span class='hs-comment'>{-# INLINE sequenceA #-}</span>  <span class='hs-comment'>-- See Note [Inline default methods]</span>
-<a name="line-160"></a>    <span class='hs-varid'>sequenceA</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>traverse</span> <span class='hs-varid'>id</span>
-<a name="line-161"></a>
-<a name="line-162"></a>    <span class='hs-comment'>-- | Map each element of a structure to a monadic action, evaluate</span>
-<a name="line-163"></a>    <span class='hs-comment'>-- these actions from left to right, and collect the results. For</span>
-<a name="line-164"></a>    <span class='hs-comment'>-- a version that ignores the results see 'Data.Foldable.mapM_'.</span>
-<a name="line-165"></a>    <span class='hs-comment'>--</span>
-<a name="line-166"></a>    <span class='hs-comment'>-- ==== __Examples__</span>
-<a name="line-167"></a>    <span class='hs-comment'>--</span>
-<a name="line-168"></a>    <span class='hs-comment'>-- 'mapM' is 'traverse' for 'Monad', and the following example shows</span>
-<a name="line-169"></a>    <span class='hs-comment'>-- how 'mapM' can apply an 'IO' action to a 'List' to produce a</span>
-<a name="line-170"></a>    <span class='hs-comment'>-- structured result.</span>
+<a name="line-158"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [Just 1, Just 2, Just 3, Nothing]</span>
+<a name="line-159"></a>    <span class='hs-comment'>-- Nothing</span>
+<a name="line-160"></a>    <span class='hs-comment'>--</span>
+<a name="line-161"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [Right 1, Right 2, Right 3, Left 4]</span>
+<a name="line-162"></a>    <span class='hs-comment'>-- Left 4</span>
+<a name="line-163"></a>    <span class='hs-comment'>--</span>
+<a name="line-164"></a>    <span class='hs-varid'>sequenceA</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Applicative</span> <span class='hs-varid'>f</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-varid'>t</span> <span class='hs-layout'>(</span><span class='hs-varid'>f</span> <span class='hs-varid'>a</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>f</span> <span class='hs-layout'>(</span><span class='hs-varid'>t</span> <span class='hs-varid'>a</span><span class='hs-layout'>)</span>
+<a name="line-165"></a>    <span class='hs-comment'>{-# INLINE sequenceA #-}</span>  <span class='hs-comment'>-- See Note [Inline default methods]</span>
+<a name="line-166"></a>    <span class='hs-varid'>sequenceA</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>traverse</span> <span class='hs-varid'>id</span>
+<a name="line-167"></a>
+<a name="line-168"></a>    <span class='hs-comment'>-- | Map each element of a structure to a monadic action, evaluate</span>
+<a name="line-169"></a>    <span class='hs-comment'>-- these actions from left to right, and collect the results. For</span>
+<a name="line-170"></a>    <span class='hs-comment'>-- a version that ignores the results see 'Data.Foldable.mapM_'.</span>
 <a name="line-171"></a>    <span class='hs-comment'>--</span>
-<a name="line-172"></a>    <span class='hs-comment'>-- Basic usage:</span>
+<a name="line-172"></a>    <span class='hs-comment'>-- ==== __Examples__</span>
 <a name="line-173"></a>    <span class='hs-comment'>--</span>
-<a name="line-174"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; import System.IO</span>
-<a name="line-175"></a>    <span class='hs-comment'>-- &gt;&gt;&gt; mapM (openTempFile ".") ["t1", "t2"]</span>
-<a name="line-176"></a>    <span class='hs-comment'>-- [("./t169980-3",{handle: ./t169980-3}),("./t269980-4",{handle: ./t269980-4})]</span>
+<a name="line-174"></a>    <span class='hs-comment'>-- 'mapM' is literally a 'traverse' with a type signature restricted</span>
+<a name="line-175"></a>    <span class='hs-comment'>-- to 'Monad'. Its implementation may be more efficient due to additional</span>
+<a name="line-176"></a>    <span class='hs-comment'>-- power of 'Monad'.</span>
 <a name="line-177"></a>    <span class='hs-comment'>--</span>
 <a name="line-178"></a>    <span class='hs-varid'>mapM</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Monad</span> <span class='hs-varid'>m</span> <span class='hs-keyglyph'>=&gt;</span> <span class='hs-layout'>(</span><span class='hs-varid'>a</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>m</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>t</span> <span class='hs-varid'>a</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>m</span> <span class='hs-layout'>(</span><span class='hs-varid'>t</span> <span class='hs-varid'>b</span><span class='hs-layout'>)</span>
 <a name="line-179"></a>    <span class='hs-comment'>{-# INLINE mapM #-}</span>  <span class='hs-comment'>-- See Note [Inline default methods]</span>
@@ -513,364 +513,375 @@
 <a name="line-504"></a><span class='hs-comment'>-- over a list of file names produces an IO action that evaluates to a list</span>
 <a name="line-505"></a><span class='hs-comment'>-- of __@(fileName, lineCount)@__ pairs:</span>
 <a name="line-506"></a><span class='hs-comment'>--</span>
-<a name="line-507"></a><span class='hs-comment'>-- &gt;&gt;&gt; nameAndLineCount :: FilePath -&gt; IO (FilePath, Int)</span>
-<a name="line-508"></a><span class='hs-comment'>-- &gt;&gt;&gt; nameAndLineCount fn = ...</span>
-<a name="line-509"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse nameAndLineCount ["/etc/passwd","/etc/hosts"]</span>
-<a name="line-510"></a><span class='hs-comment'>-- [("/etc/passwd",56),("/etc/hosts",32)]</span>
+<a name="line-507"></a><span class='hs-comment'>-- @</span>
+<a name="line-508"></a><span class='hs-comment'>-- nameAndLineCount :: FilePath -&gt; IO (FilePath, Int)</span>
+<a name="line-509"></a><span class='hs-comment'>-- nameAndLineCount fn = ...</span>
+<a name="line-510"></a><span class='hs-comment'>-- @</span>
 <a name="line-511"></a><span class='hs-comment'>--</span>
-<a name="line-512"></a><span class='hs-comment'>-- The specialisation of 'traverse' to the case when __@f@__ is a monad is</span>
-<a name="line-513"></a><span class='hs-comment'>-- called 'mapM'.  The two are otherwise generally identical:</span>
+<a name="line-512"></a><span class='hs-comment'>-- Then @traverse nameAndLineCount ["/etc/passwd","/etc/hosts"]@</span>
+<a name="line-513"></a><span class='hs-comment'>-- could return</span>
 <a name="line-514"></a><span class='hs-comment'>--</span>
-<a name="line-515"></a><span class='hs-comment'>-- &gt; traverse :: (Applicative f, Traversable t) =&gt; (a -&gt; f b) -&gt; t a -&gt; f (t b)</span>
-<a name="line-516"></a><span class='hs-comment'>-- &gt; mapM     :: (Monad       m, Traversable t) =&gt; (a -&gt; m b) -&gt; t a -&gt; m (t b)</span>
-<a name="line-517"></a><span class='hs-comment'>--</span>
-<a name="line-518"></a><span class='hs-comment'>-- The behaviour of 'traverse' and 'mapM' can be at first surprising when the</span>
-<a name="line-519"></a><span class='hs-comment'>-- applicative functor __@f@__ is __@[]@__ (i.e. the List monad).  The List</span>
-<a name="line-520"></a><span class='hs-comment'>-- monad is said to be /non-deterministic/, by which is meant that applying a</span>
-<a name="line-521"></a><span class='hs-comment'>-- list of __@n@__ functions __@[a -&gt; b]@__ to a list of __@k@__ values</span>
-<a name="line-522"></a><span class='hs-comment'>-- __@[a]@__ produces a list of __@n*k@__ values of each function applied to</span>
-<a name="line-523"></a><span class='hs-comment'>-- each input value.</span>
+<a name="line-515"></a><span class='hs-comment'>-- @</span>
+<a name="line-516"></a><span class='hs-comment'>-- [("/etc/passwd",56),("/etc/hosts",32)]</span>
+<a name="line-517"></a><span class='hs-comment'>-- @</span>
+<a name="line-518"></a><span class='hs-comment'>--</span>
+<a name="line-519"></a><span class='hs-comment'>-- The specialisation of 'traverse' to the case when __@f@__ is a monad is</span>
+<a name="line-520"></a><span class='hs-comment'>-- called 'mapM'.  The two are otherwise generally identical:</span>
+<a name="line-521"></a><span class='hs-comment'>--</span>
+<a name="line-522"></a><span class='hs-comment'>-- &gt; traverse :: (Applicative f, Traversable t) =&gt; (a -&gt; f b) -&gt; t a -&gt; f (t b)</span>
+<a name="line-523"></a><span class='hs-comment'>-- &gt; mapM     :: (Monad       m, Traversable t) =&gt; (a -&gt; m b) -&gt; t a -&gt; m (t b)</span>
 <a name="line-524"></a><span class='hs-comment'>--</span>
-<a name="line-525"></a><span class='hs-comment'>-- As a result, traversal with a function __@f :: a -&gt; [b]@__, over an input</span>
-<a name="line-526"></a><span class='hs-comment'>-- container __@t a@__, yields a list __@[t b]@__, whose length is the product</span>
-<a name="line-527"></a><span class='hs-comment'>-- of the lengths of the lists that the function returns for each element of</span>
-<a name="line-528"></a><span class='hs-comment'>-- the input container!  The individual elements __@a@__ of the container are</span>
-<a name="line-529"></a><span class='hs-comment'>-- replaced by each element of __@f a@__ in turn:</span>
-<a name="line-530"></a><span class='hs-comment'>--</span>
-<a name="line-531"></a><span class='hs-comment'>-- &gt;&gt;&gt; mapM (\n -&gt; [0..n]) $ Just 2</span>
-<a name="line-532"></a><span class='hs-comment'>-- [Just 0, Just 1, Just 2]</span>
-<a name="line-533"></a><span class='hs-comment'>-- &gt;&gt;&gt; mapM (\n -&gt; [0..n]) [0..2]</span>
-<a name="line-534"></a><span class='hs-comment'>-- [[0,0,0],[0,0,1],[0,0,2],[0,1,0],[0,1,1],[0,1,2]]</span>
-<a name="line-535"></a><span class='hs-comment'>--</span>
-<a name="line-536"></a><span class='hs-comment'>-- If any element of the container is mapped to an empty list, then the</span>
-<a name="line-537"></a><span class='hs-comment'>-- aggregate result is empty (no value is available to fill one of the</span>
-<a name="line-538"></a><span class='hs-comment'>-- slots of the output container).</span>
-<a name="line-539"></a><span class='hs-comment'>--</span>
-<a name="line-540"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse (const []) $ Just 0</span>
-<a name="line-541"></a><span class='hs-comment'>-- []</span>
+<a name="line-525"></a><span class='hs-comment'>-- The behaviour of 'traverse' and 'mapM' can be at first surprising when the</span>
+<a name="line-526"></a><span class='hs-comment'>-- applicative functor __@f@__ is __@[]@__ (i.e. the List monad).  The List</span>
+<a name="line-527"></a><span class='hs-comment'>-- monad is said to be /non-deterministic/, by which is meant that applying a</span>
+<a name="line-528"></a><span class='hs-comment'>-- list of __@n@__ functions __@[a -&gt; b]@__ to a list of __@k@__ values</span>
+<a name="line-529"></a><span class='hs-comment'>-- __@[a]@__ produces a list of __@n*k@__ values of each function applied to</span>
+<a name="line-530"></a><span class='hs-comment'>-- each input value.</span>
+<a name="line-531"></a><span class='hs-comment'>--</span>
+<a name="line-532"></a><span class='hs-comment'>-- As a result, traversal with a function __@f :: a -&gt; [b]@__, over an input</span>
+<a name="line-533"></a><span class='hs-comment'>-- container __@t a@__, yields a list __@[t b]@__, whose length is the product</span>
+<a name="line-534"></a><span class='hs-comment'>-- of the lengths of the lists that the function returns for each element of</span>
+<a name="line-535"></a><span class='hs-comment'>-- the input container!  The individual elements __@a@__ of the container are</span>
+<a name="line-536"></a><span class='hs-comment'>-- replaced by each element of __@f a@__ in turn:</span>
+<a name="line-537"></a><span class='hs-comment'>--</span>
+<a name="line-538"></a><span class='hs-comment'>-- &gt;&gt;&gt; mapM (\n -&gt; [0..n]) $ Just 2</span>
+<a name="line-539"></a><span class='hs-comment'>-- [Just 0,Just 1,Just 2]</span>
+<a name="line-540"></a><span class='hs-comment'>-- &gt;&gt;&gt; mapM (\n -&gt; [0..n]) [0..2]</span>
+<a name="line-541"></a><span class='hs-comment'>-- [[0,0,0],[0,0,1],[0,0,2],[0,1,0],[0,1,1],[0,1,2]]</span>
 <a name="line-542"></a><span class='hs-comment'>--</span>
-<a name="line-543"></a><span class='hs-comment'>-- When however the traversed container is empty, the result is always a</span>
-<a name="line-544"></a><span class='hs-comment'>-- singleton of the empty container, the function is never evaluated</span>
-<a name="line-545"></a><span class='hs-comment'>-- as there are no input values for it to be applied to.</span>
+<a name="line-543"></a><span class='hs-comment'>-- If any element of the container is mapped to an empty list, then the</span>
+<a name="line-544"></a><span class='hs-comment'>-- aggregate result is empty (no value is available to fill one of the</span>
+<a name="line-545"></a><span class='hs-comment'>-- slots of the output container).</span>
 <a name="line-546"></a><span class='hs-comment'>--</span>
-<a name="line-547"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse (const []) Nothing</span>
-<a name="line-548"></a><span class='hs-comment'>-- [Nothing]</span>
+<a name="line-547"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse (const []) $ Just 0</span>
+<a name="line-548"></a><span class='hs-comment'>-- []</span>
 <a name="line-549"></a><span class='hs-comment'>--</span>
-<a name="line-550"></a><span class='hs-comment'>-- The result of 'traverse' is all-or-nothing, either containers of exactly the</span>
-<a name="line-551"></a><span class='hs-comment'>-- same shape as the input or a failure ('Nothing', 'Left', empty list, etc.).</span>
-<a name="line-552"></a><span class='hs-comment'>-- The 'traverse' function does not perform selective filtering as with e.g.</span>
-<a name="line-553"></a><span class='hs-comment'>-- 'Data.Maybe.mapMaybe':</span>
-<a name="line-554"></a><span class='hs-comment'>--</span>
-<a name="line-555"></a><span class='hs-comment'>-- &gt;&gt;&gt; let incOdd n = if odd n then Just $ n + 1 else Nothing</span>
-<a name="line-556"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse incOdd [1, 2, 3]</span>
-<a name="line-557"></a><span class='hs-comment'>-- Nothing</span>
-<a name="line-558"></a><span class='hs-comment'>-- &gt;&gt;&gt; mapMaybe incOdd [1, 2, 3]</span>
-<a name="line-559"></a><span class='hs-comment'>-- [2,4]</span>
-<a name="line-560"></a>
-<a name="line-561"></a><span class='hs-comment'>------------------</span>
-<a name="line-562"></a>
-<a name="line-563"></a><span class='hs-comment'>-- $validation</span>
-<a name="line-564"></a><span class='hs-comment'>--</span>
-<a name="line-565"></a><span class='hs-comment'>-- #validation#</span>
-<a name="line-566"></a><span class='hs-comment'>-- A hypothetical application of the above is to validate a structure:</span>
-<a name="line-567"></a><span class='hs-comment'>--</span>
-<a name="line-568"></a><span class='hs-comment'>-- &gt;&gt;&gt; validate :: Int -&gt; Either (String, Int) Int</span>
-<a name="line-569"></a><span class='hs-comment'>-- &gt;&gt;&gt; validate i = if odd i then Left ("That's odd", i) else Right i</span>
-<a name="line-570"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate [2,4,6,8,10]</span>
-<a name="line-571"></a><span class='hs-comment'>-- Right [2,4,6,8,10]</span>
-<a name="line-572"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate [2,4,6,8,9]</span>
-<a name="line-573"></a><span class='hs-comment'>-- Left ("That's odd",9)</span>
+<a name="line-550"></a><span class='hs-comment'>-- When however the traversed container is empty, the result is always a</span>
+<a name="line-551"></a><span class='hs-comment'>-- singleton of the empty container, the function is never evaluated</span>
+<a name="line-552"></a><span class='hs-comment'>-- as there are no input values for it to be applied to.</span>
+<a name="line-553"></a><span class='hs-comment'>--</span>
+<a name="line-554"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse (const []) Nothing</span>
+<a name="line-555"></a><span class='hs-comment'>-- [Nothing]</span>
+<a name="line-556"></a><span class='hs-comment'>--</span>
+<a name="line-557"></a><span class='hs-comment'>-- The result of 'traverse' is all-or-nothing, either containers of exactly the</span>
+<a name="line-558"></a><span class='hs-comment'>-- same shape as the input or a failure ('Nothing', 'Left', empty list, etc.).</span>
+<a name="line-559"></a><span class='hs-comment'>-- The 'traverse' function does not perform selective filtering as with e.g.</span>
+<a name="line-560"></a><span class='hs-comment'>-- 'Data.Maybe.mapMaybe':</span>
+<a name="line-561"></a><span class='hs-comment'>--</span>
+<a name="line-562"></a><span class='hs-comment'>-- &gt;&gt;&gt; let incOdd n = if odd n then Just $ n + 1 else Nothing</span>
+<a name="line-563"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse incOdd [1, 2, 3]</span>
+<a name="line-564"></a><span class='hs-comment'>-- Nothing</span>
+<a name="line-565"></a><span class='hs-comment'>-- &gt;&gt;&gt; mapMaybe incOdd [1, 2, 3]</span>
+<a name="line-566"></a><span class='hs-comment'>-- [2,4]</span>
+<a name="line-567"></a>
+<a name="line-568"></a><span class='hs-comment'>------------------</span>
+<a name="line-569"></a>
+<a name="line-570"></a><span class='hs-comment'>-- $validation</span>
+<a name="line-571"></a><span class='hs-comment'>--</span>
+<a name="line-572"></a><span class='hs-comment'>-- #validation#</span>
+<a name="line-573"></a><span class='hs-comment'>-- A hypothetical application of the above is to validate a structure:</span>
 <a name="line-574"></a><span class='hs-comment'>--</span>
-<a name="line-575"></a><span class='hs-comment'>-- &gt;&gt;&gt; -- Since 'Nothing' is an empty structure, none of its elements are odd.</span>
-<a name="line-576"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate Nothing</span>
-<a name="line-577"></a><span class='hs-comment'>-- Right Nothing</span>
-<a name="line-578"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate (Just 42)</span>
-<a name="line-579"></a><span class='hs-comment'>-- Right (Just 42)</span>
-<a name="line-580"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate (Just 17)</span>
-<a name="line-581"></a><span class='hs-comment'>-- Left ("That's odd",17)</span>
-<a name="line-582"></a><span class='hs-comment'>--</span>
-<a name="line-583"></a><span class='hs-comment'>-- However, this is not terribly efficient, because we pay the cost of</span>
-<a name="line-584"></a><span class='hs-comment'>-- reconstructing the entire structure as a side effect of validation.</span>
-<a name="line-585"></a><span class='hs-comment'>-- It is generally cheaper to just check all the elements and then use</span>
-<a name="line-586"></a><span class='hs-comment'>-- the original structure if it is valid.  This can be done via the</span>
-<a name="line-587"></a><span class='hs-comment'>-- methods of the 'Foldable' superclass, which perform only the</span>
-<a name="line-588"></a><span class='hs-comment'>-- side effects without generating a new structure:</span>
-<a name="line-589"></a><span class='hs-comment'>--</span>
-<a name="line-590"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse_ validate [2,4,6,8,10]</span>
-<a name="line-591"></a><span class='hs-comment'>-- Right ()</span>
-<a name="line-592"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse_ validate [2,4,6,8,9]</span>
-<a name="line-593"></a><span class='hs-comment'>-- Left ("That's odd",9)</span>
-<a name="line-594"></a><span class='hs-comment'>--</span>
-<a name="line-595"></a><span class='hs-comment'>-- The @Foldable@ instance should be defined in a manner that avoids</span>
-<a name="line-596"></a><span class='hs-comment'>-- construction of an unnecesary copy of the container.</span>
-<a name="line-597"></a><span class='hs-comment'>--</span>
-<a name="line-598"></a><span class='hs-comment'>-- The @Foldable@ method 'mapM_' and its flipped version 'forM_' can be used</span>
-<a name="line-599"></a><span class='hs-comment'>-- to sequence IO actions over all the elements of a @Traversable@ container</span>
-<a name="line-600"></a><span class='hs-comment'>-- (just for their side-effects, ignoring any results) .  One special</span>
-<a name="line-601"></a><span class='hs-comment'>-- case is a 'Maybe' container that optionally holds a value. Given:</span>
-<a name="line-602"></a><span class='hs-comment'>--</span>
-<a name="line-603"></a><span class='hs-comment'>-- &gt; action :: a -&gt; IO ()</span>
-<a name="line-604"></a><span class='hs-comment'>-- &gt; mvalue :: Maybe a</span>
+<a name="line-575"></a><span class='hs-comment'>-- &gt;&gt;&gt; :{</span>
+<a name="line-576"></a><span class='hs-comment'>-- validate :: Int -&gt; Either (String, Int) Int</span>
+<a name="line-577"></a><span class='hs-comment'>-- validate i = if odd i then Left ("That's odd", i) else Right i</span>
+<a name="line-578"></a><span class='hs-comment'>-- :}</span>
+<a name="line-579"></a><span class='hs-comment'>--</span>
+<a name="line-580"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate [2,4,6,8,10]</span>
+<a name="line-581"></a><span class='hs-comment'>-- Right [2,4,6,8,10]</span>
+<a name="line-582"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate [2,4,6,8,9]</span>
+<a name="line-583"></a><span class='hs-comment'>-- Left ("That's odd",9)</span>
+<a name="line-584"></a><span class='hs-comment'>--</span>
+<a name="line-585"></a><span class='hs-comment'>-- Since 'Nothing' is an empty structure, none of its elements are odd.</span>
+<a name="line-586"></a><span class='hs-comment'>--</span>
+<a name="line-587"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate Nothing</span>
+<a name="line-588"></a><span class='hs-comment'>-- Right Nothing</span>
+<a name="line-589"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate (Just 42)</span>
+<a name="line-590"></a><span class='hs-comment'>-- Right (Just 42)</span>
+<a name="line-591"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse validate (Just 17)</span>
+<a name="line-592"></a><span class='hs-comment'>-- Left ("That's odd",17)</span>
+<a name="line-593"></a><span class='hs-comment'>--</span>
+<a name="line-594"></a><span class='hs-comment'>-- However, this is not terribly efficient, because we pay the cost of</span>
+<a name="line-595"></a><span class='hs-comment'>-- reconstructing the entire structure as a side effect of validation.</span>
+<a name="line-596"></a><span class='hs-comment'>-- It is generally cheaper to just check all the elements and then use</span>
+<a name="line-597"></a><span class='hs-comment'>-- the original structure if it is valid.  This can be done via the</span>
+<a name="line-598"></a><span class='hs-comment'>-- methods of the 'Foldable' superclass, which perform only the</span>
+<a name="line-599"></a><span class='hs-comment'>-- side effects without generating a new structure:</span>
+<a name="line-600"></a><span class='hs-comment'>--</span>
+<a name="line-601"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse_ validate [2,4,6,8,10]</span>
+<a name="line-602"></a><span class='hs-comment'>-- Right ()</span>
+<a name="line-603"></a><span class='hs-comment'>-- &gt;&gt;&gt; traverse_ validate [2,4,6,8,9]</span>
+<a name="line-604"></a><span class='hs-comment'>-- Left ("That's odd",9)</span>
 <a name="line-605"></a><span class='hs-comment'>--</span>
-<a name="line-606"></a><span class='hs-comment'>-- if you want to evaluate the __@action@__ in the @Just@ case, and do</span>
-<a name="line-607"></a><span class='hs-comment'>-- nothing otherwise, you can write the more concise and more general:</span>
+<a name="line-606"></a><span class='hs-comment'>-- The 'Foldable' instance should be defined in a manner that avoids</span>
+<a name="line-607"></a><span class='hs-comment'>-- construction of an unnecessary copy of the container.</span>
 <a name="line-608"></a><span class='hs-comment'>--</span>
-<a name="line-609"></a><span class='hs-comment'>-- &gt; mapM_ action mvalue</span>
-<a name="line-610"></a><span class='hs-comment'>--</span>
-<a name="line-611"></a><span class='hs-comment'>-- rather than</span>
-<a name="line-612"></a><span class='hs-comment'>--</span>
-<a name="line-613"></a><span class='hs-comment'>-- &gt; maybe (return ()) action mvalue</span>
-<a name="line-614"></a><span class='hs-comment'>--</span>
-<a name="line-615"></a><span class='hs-comment'>-- The 'mapM_' form works verbatim if the type of __@mvalue@__ is later</span>
-<a name="line-616"></a><span class='hs-comment'>-- refactored from __@Maybe a@__ to __@Either e a@__ (assuming it remains</span>
-<a name="line-617"></a><span class='hs-comment'>-- OK to silently do nothing in the error case).</span>
-<a name="line-618"></a><span class='hs-comment'>--</span>
-<a name="line-619"></a><span class='hs-comment'>-- There's even a generic way to handle empty values ('Nothing', 'Left', etc.):</span>
-<a name="line-620"></a><span class='hs-comment'>--</span>
-<a name="line-621"></a><span class='hs-comment'>-- &gt; case traverse_ (const Nothing) mvalue of</span>
-<a name="line-622"></a><span class='hs-comment'>-- &gt;     Nothing -&gt; mapM_ action mvalue -- mvalue is non-empty</span>
-<a name="line-623"></a><span class='hs-comment'>-- &gt;     Just () -&gt; ... handle empty mvalue ...</span>
-<a name="line-624"></a>
-<a name="line-625"></a><span class='hs-comment'>------------------</span>
-<a name="line-626"></a>
-<a name="line-627"></a><span class='hs-comment'>-- $sequence</span>
-<a name="line-628"></a><span class='hs-comment'>-- The 'sequenceA' and 'sequence' methods are useful when what you have is a</span>
-<a name="line-629"></a><span class='hs-comment'>-- container of applicative or, respectively, monadic actions, and you want to</span>
-<a name="line-630"></a><span class='hs-comment'>-- evaluate them left-to-right to obtain a container of the computed values.</span>
+<a name="line-609"></a><span class='hs-comment'>-- The @Foldable@ method 'mapM_' and its flipped version 'forM_' can be used</span>
+<a name="line-610"></a><span class='hs-comment'>-- to sequence IO actions over all the elements of a @Traversable@ container</span>
+<a name="line-611"></a><span class='hs-comment'>-- (just for their side-effects, ignoring any results) .  One special</span>
+<a name="line-612"></a><span class='hs-comment'>-- case is a 'Maybe' container that optionally holds a value. Given:</span>
+<a name="line-613"></a><span class='hs-comment'>--</span>
+<a name="line-614"></a><span class='hs-comment'>-- &gt; action :: a -&gt; IO ()</span>
+<a name="line-615"></a><span class='hs-comment'>-- &gt; mvalue :: Maybe a</span>
+<a name="line-616"></a><span class='hs-comment'>--</span>
+<a name="line-617"></a><span class='hs-comment'>-- if you want to evaluate the __@action@__ in the @Just@ case, and do</span>
+<a name="line-618"></a><span class='hs-comment'>-- nothing otherwise, you can write the more concise and more general:</span>
+<a name="line-619"></a><span class='hs-comment'>--</span>
+<a name="line-620"></a><span class='hs-comment'>-- &gt; mapM_ action mvalue</span>
+<a name="line-621"></a><span class='hs-comment'>--</span>
+<a name="line-622"></a><span class='hs-comment'>-- rather than</span>
+<a name="line-623"></a><span class='hs-comment'>--</span>
+<a name="line-624"></a><span class='hs-comment'>-- &gt; maybe (return ()) action mvalue</span>
+<a name="line-625"></a><span class='hs-comment'>--</span>
+<a name="line-626"></a><span class='hs-comment'>-- The 'mapM_' form works verbatim if the type of __@mvalue@__ is later</span>
+<a name="line-627"></a><span class='hs-comment'>-- refactored from __@Maybe a@__ to __@Either e a@__ (assuming it remains</span>
+<a name="line-628"></a><span class='hs-comment'>-- OK to silently do nothing in the error case).</span>
+<a name="line-629"></a><span class='hs-comment'>--</span>
+<a name="line-630"></a><span class='hs-comment'>-- There's even a generic way to handle empty values ('Nothing', 'Left', etc.):</span>
 <a name="line-631"></a><span class='hs-comment'>--</span>
-<a name="line-632"></a><span class='hs-comment'>-- &gt; sequenceA :: (Applicative f, Traversable t) =&gt; t (f a) -&gt; f (t a)</span>
-<a name="line-633"></a><span class='hs-comment'>-- &gt; sequence  :: (Monad       m, Traversable t) =&gt; t (m a) -&gt; m (t a)</span>
-<a name="line-634"></a><span class='hs-comment'>-- &gt; sequenceA = traverse id</span>
-<a name="line-635"></a><span class='hs-comment'>-- &gt; sequence  = mapM id</span>
-<a name="line-636"></a><span class='hs-comment'>--</span>
-<a name="line-637"></a><span class='hs-comment'>-- When the monad __@m@__ is 'System.IO.IO', applying 'sequence' to a list of</span>
-<a name="line-638"></a><span class='hs-comment'>-- IO actions, performs each in turn, returning a list of the results:</span>
-<a name="line-639"></a><span class='hs-comment'>--</span>
-<a name="line-640"></a><span class='hs-comment'>-- &gt; sequence [putStr "Hello ", putStrLn "World!"]</span>
-<a name="line-641"></a><span class='hs-comment'>-- &gt;     = (\a b -&gt; [a,b]) &lt;$&gt; putStr "Hello " &lt;*&gt; putStrLn "World!"</span>
-<a name="line-642"></a><span class='hs-comment'>-- &gt;     = do u1 &lt;- putStr "Hello "</span>
-<a name="line-643"></a><span class='hs-comment'>-- &gt;          u2 &lt;- putStrLn "World!"</span>
-<a name="line-644"></a><span class='hs-comment'>-- &gt;          return (u1, u2)</span>
-<a name="line-645"></a><span class='hs-comment'>--</span>
-<a name="line-646"></a><span class='hs-comment'>-- For 'sequenceA', the /non-deterministic/ behaviour of @List@ is most easily</span>
-<a name="line-647"></a><span class='hs-comment'>-- seen in the case of a list of lists (of elements of some common fixed type).</span>
-<a name="line-648"></a><span class='hs-comment'>-- The result is a cross-product of all the sublists:</span>
-<a name="line-649"></a><span class='hs-comment'>--</span>
-<a name="line-650"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [[0, 1, 2], [30, 40], [500]]</span>
-<a name="line-651"></a><span class='hs-comment'>-- [[0,30,500],[0,40,500],[1,30,500],[1,40,500],[2,30,500],[2,40,500]]</span>
-<a name="line-652"></a><span class='hs-comment'>--</span>
-<a name="line-653"></a><span class='hs-comment'>-- When the monad __@m@__ is 'Maybe' or 'Either', the effect in question is to</span>
-<a name="line-654"></a><span class='hs-comment'>-- short-circuit the computation on encountering 'Nothing' or 'Left'.</span>
-<a name="line-655"></a><span class='hs-comment'>--</span>
-<a name="line-656"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequence [Just 1,Just 2,Just 3]</span>
-<a name="line-657"></a><span class='hs-comment'>-- Just [1,2,3]</span>
-<a name="line-658"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequence [Just 1,Nothing,Just 3]</span>
-<a name="line-659"></a><span class='hs-comment'>-- Nothing</span>
-<a name="line-660"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequence [Right 1,Right 2,Right 3]</span>
-<a name="line-661"></a><span class='hs-comment'>-- Right [1,2,3]</span>
-<a name="line-662"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequence [Right 1,Left "sorry",Right 3]</span>
-<a name="line-663"></a><span class='hs-comment'>-- Left "sorry"</span>
-<a name="line-664"></a><span class='hs-comment'>--</span>
-<a name="line-665"></a><span class='hs-comment'>-- The result of 'sequence' is all-or-nothing, either containers of exactly the</span>
-<a name="line-666"></a><span class='hs-comment'>-- same shape as the input or a failure ('Nothing', 'Left', empty list, etc.).</span>
-<a name="line-667"></a><span class='hs-comment'>-- The 'sequence' function does not perform selective filtering as with e.g.</span>
-<a name="line-668"></a><span class='hs-comment'>-- 'Data.Maybe.catMaybes' or 'Data.Either.rights':</span>
-<a name="line-669"></a><span class='hs-comment'>--</span>
-<a name="line-670"></a><span class='hs-comment'>-- &gt;&gt;&gt; catMaybes [Just 1,Nothing,Just 3]</span>
-<a name="line-671"></a><span class='hs-comment'>-- [1,3]</span>
-<a name="line-672"></a><span class='hs-comment'>-- &gt;&gt;&gt; rights [Right 1,Left "sorry",Right 3]</span>
-<a name="line-673"></a><span class='hs-comment'>-- [1,3]</span>
-<a name="line-674"></a>
-<a name="line-675"></a><span class='hs-comment'>------------------</span>
-<a name="line-676"></a>
-<a name="line-677"></a><span class='hs-comment'>-- $sample_instance</span>
-<a name="line-678"></a><span class='hs-comment'>--</span>
-<a name="line-679"></a><span class='hs-comment'>-- Instances are similar to 'Functor', e.g. given a data type</span>
+<a name="line-632"></a><span class='hs-comment'>-- &gt; case traverse_ (const Nothing) mvalue of</span>
+<a name="line-633"></a><span class='hs-comment'>-- &gt;     Nothing -&gt; mapM_ action mvalue -- mvalue is non-empty</span>
+<a name="line-634"></a><span class='hs-comment'>-- &gt;     Just () -&gt; ... handle empty mvalue ...</span>
+<a name="line-635"></a>
+<a name="line-636"></a><span class='hs-comment'>------------------</span>
+<a name="line-637"></a>
+<a name="line-638"></a><span class='hs-comment'>-- $sequence</span>
+<a name="line-639"></a><span class='hs-comment'>-- The 'sequenceA' and 'sequence' methods are useful when what you have is a</span>
+<a name="line-640"></a><span class='hs-comment'>-- container of applicative or, respectively, monadic actions, and you want to</span>
+<a name="line-641"></a><span class='hs-comment'>-- evaluate them left-to-right to obtain a container of the computed values.</span>
+<a name="line-642"></a><span class='hs-comment'>--</span>
+<a name="line-643"></a><span class='hs-comment'>-- &gt; sequenceA :: (Applicative f, Traversable t) =&gt; t (f a) -&gt; f (t a)</span>
+<a name="line-644"></a><span class='hs-comment'>-- &gt; sequence  :: (Monad       m, Traversable t) =&gt; t (m a) -&gt; m (t a)</span>
+<a name="line-645"></a><span class='hs-comment'>-- &gt; sequenceA = traverse id</span>
+<a name="line-646"></a><span class='hs-comment'>-- &gt; sequence  = mapM id</span>
+<a name="line-647"></a><span class='hs-comment'>--</span>
+<a name="line-648"></a><span class='hs-comment'>-- When the monad __@m@__ is 'System.IO.IO', applying 'sequence' to a list of</span>
+<a name="line-649"></a><span class='hs-comment'>-- IO actions, performs each in turn, returning a list of the results:</span>
+<a name="line-650"></a><span class='hs-comment'>--</span>
+<a name="line-651"></a><span class='hs-comment'>-- &gt; sequence [putStr "Hello ", putStrLn "World!"]</span>
+<a name="line-652"></a><span class='hs-comment'>-- &gt;     = (\a b -&gt; [a,b]) &lt;$&gt; putStr "Hello " &lt;*&gt; putStrLn "World!"</span>
+<a name="line-653"></a><span class='hs-comment'>-- &gt;     = do u1 &lt;- putStr "Hello "</span>
+<a name="line-654"></a><span class='hs-comment'>-- &gt;          u2 &lt;- putStrLn "World!"</span>
+<a name="line-655"></a><span class='hs-comment'>-- &gt;          return (u1, u2)</span>
+<a name="line-656"></a><span class='hs-comment'>--</span>
+<a name="line-657"></a><span class='hs-comment'>-- For 'sequenceA', the /non-deterministic/ behaviour of @List@ is most easily</span>
+<a name="line-658"></a><span class='hs-comment'>-- seen in the case of a list of lists (of elements of some common fixed type).</span>
+<a name="line-659"></a><span class='hs-comment'>-- The result is a cross-product of all the sublists:</span>
+<a name="line-660"></a><span class='hs-comment'>--</span>
+<a name="line-661"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequenceA [[0, 1, 2], [30, 40], [500]]</span>
+<a name="line-662"></a><span class='hs-comment'>-- [[0,30,500],[0,40,500],[1,30,500],[1,40,500],[2,30,500],[2,40,500]]</span>
+<a name="line-663"></a><span class='hs-comment'>--</span>
+<a name="line-664"></a><span class='hs-comment'>-- When the monad __@m@__ is 'Maybe' or 'Either', the effect in question is to</span>
+<a name="line-665"></a><span class='hs-comment'>-- short-circuit the computation on encountering 'Nothing' or 'Left'.</span>
+<a name="line-666"></a><span class='hs-comment'>--</span>
+<a name="line-667"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequence [Just 1,Just 2,Just 3]</span>
+<a name="line-668"></a><span class='hs-comment'>-- Just [1,2,3]</span>
+<a name="line-669"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequence [Just 1,Nothing,Just 3]</span>
+<a name="line-670"></a><span class='hs-comment'>-- Nothing</span>
+<a name="line-671"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequence [Right 1,Right 2,Right 3]</span>
+<a name="line-672"></a><span class='hs-comment'>-- Right [1,2,3]</span>
+<a name="line-673"></a><span class='hs-comment'>-- &gt;&gt;&gt; sequence [Right 1,Left "sorry",Right 3]</span>
+<a name="line-674"></a><span class='hs-comment'>-- Left "sorry"</span>
+<a name="line-675"></a><span class='hs-comment'>--</span>
+<a name="line-676"></a><span class='hs-comment'>-- The result of 'sequence' is all-or-nothing, either containers of exactly the</span>
+<a name="line-677"></a><span class='hs-comment'>-- same shape as the input or a failure ('Nothing', 'Left', empty list, etc.).</span>
+<a name="line-678"></a><span class='hs-comment'>-- The 'sequence' function does not perform selective filtering as with e.g.</span>
+<a name="line-679"></a><span class='hs-comment'>-- 'Data.Maybe.catMaybes' or 'Data.Either.rights':</span>
 <a name="line-680"></a><span class='hs-comment'>--</span>
-<a name="line-681"></a><span class='hs-comment'>-- &gt; data Tree a = Empty | Leaf a | Node (Tree a) a (Tree a)</span>
-<a name="line-682"></a><span class='hs-comment'>--</span>
-<a name="line-683"></a><span class='hs-comment'>-- a suitable instance would be</span>
-<a name="line-684"></a><span class='hs-comment'>--</span>
-<a name="line-685"></a><span class='hs-comment'>-- &gt; instance Traversable Tree where</span>
-<a name="line-686"></a><span class='hs-comment'>-- &gt;    traverse f Empty = pure Empty</span>
-<a name="line-687"></a><span class='hs-comment'>-- &gt;    traverse f (Leaf x) = Leaf &lt;$&gt; f x</span>
-<a name="line-688"></a><span class='hs-comment'>-- &gt;    traverse f (Node l k r) = Node &lt;$&gt; traverse f l &lt;*&gt; f k &lt;*&gt; traverse f r</span>
+<a name="line-681"></a><span class='hs-comment'>-- &gt;&gt;&gt; catMaybes [Just 1,Nothing,Just 3]</span>
+<a name="line-682"></a><span class='hs-comment'>-- [1,3]</span>
+<a name="line-683"></a><span class='hs-comment'>-- &gt;&gt;&gt; rights [Right 1,Left "sorry",Right 3]</span>
+<a name="line-684"></a><span class='hs-comment'>-- [1,3]</span>
+<a name="line-685"></a>
+<a name="line-686"></a><span class='hs-comment'>------------------</span>
+<a name="line-687"></a>
+<a name="line-688"></a><span class='hs-comment'>-- $sample_instance</span>
 <a name="line-689"></a><span class='hs-comment'>--</span>
-<a name="line-690"></a><span class='hs-comment'>-- This definition works for any applicative functor in the co-domain of @f@,</span>
-<a name="line-691"></a><span class='hs-comment'>-- as the laws for '&lt;*&gt;' imply a form of associativity.</span>
-<a name="line-692"></a>
-<a name="line-693"></a><span class='hs-comment'>------------------</span>
-<a name="line-694"></a>
-<a name="line-695"></a><span class='hs-comment'>-- $construction</span>
-<a name="line-696"></a><span class='hs-comment'>--</span>
-<a name="line-697"></a><span class='hs-comment'>-- How do @Traversable@ functors manage to construct a new container of the</span>
-<a name="line-698"></a><span class='hs-comment'>-- same shape by sequencing effects over their elements?  Well, left-to-right</span>
-<a name="line-699"></a><span class='hs-comment'>-- traversal with sequencing of effects suggests induction from a base case, so</span>
-<a name="line-700"></a><span class='hs-comment'>-- the first question is what is the base case?  A @Traversable@ container with</span>
-<a name="line-701"></a><span class='hs-comment'>-- elements of type __@a@__ generally has some minimal form that is either</span>
-<a name="line-702"></a><span class='hs-comment'>-- "empty" or has just a single element (think "Data.List" vs.</span>
-<a name="line-703"></a><span class='hs-comment'>-- "Data.List.Nonempty").</span>
-<a name="line-704"></a><span class='hs-comment'>--</span>
-<a name="line-705"></a><span class='hs-comment'>-- * If the base case is empty (no associated first value of __@a@__) then</span>
-<a name="line-706"></a><span class='hs-comment'>--   traversal just reproduces the empty structure with no side effects,</span>
-<a name="line-707"></a><span class='hs-comment'>--   so we have:</span>
-<a name="line-708"></a><span class='hs-comment'>--</span>
-<a name="line-709"></a><span class='hs-comment'>--     &gt; traverse _ empty = pure empty</span>
-<a name="line-710"></a><span class='hs-comment'>--</span>
-<a name="line-711"></a><span class='hs-comment'>--     With the List monad, "empty" is __@[]@__, while with 'Maybe' it is</span>
-<a name="line-712"></a><span class='hs-comment'>--     'Nothing'.  With __@Either e a@__ we have an /empty/ case for each</span>
-<a name="line-713"></a><span class='hs-comment'>--     value of __@e@__.</span>
-<a name="line-714"></a><span class='hs-comment'>--</span>
-<a name="line-715"></a><span class='hs-comment'>-- * If the base case is a __@singleton a@__, then 'traverse' can take that</span>
-<a name="line-716"></a><span class='hs-comment'>--   __@a@__, apply __@f :: a -&gt; F b@__ getting an __@F b@__, then</span>
-<a name="line-717"></a><span class='hs-comment'>--   __@fmap singleton@__ over that, getting __@F (singleton b)@__:</span>
-<a name="line-718"></a><span class='hs-comment'>--</span>
-<a name="line-719"></a><span class='hs-comment'>--     &gt; traverse f (singleton a) = singleton &lt;$&gt; f a</span>
-<a name="line-720"></a><span class='hs-comment'>--</span>
-<a name="line-721"></a><span class='hs-comment'>-- Since 'Maybe' and 'Either' are either empty or singletons, we have</span>
-<a name="line-722"></a><span class='hs-comment'>--</span>
-<a name="line-723"></a><span class='hs-comment'>-- &gt; traverse _ Nothing = pure Nothing</span>
-<a name="line-724"></a><span class='hs-comment'>-- &gt; traverse f (Just a) = Just &lt;$&gt; f a</span>
+<a name="line-690"></a><span class='hs-comment'>-- Instances are similar to 'Functor', e.g. given a data type</span>
+<a name="line-691"></a><span class='hs-comment'>--</span>
+<a name="line-692"></a><span class='hs-comment'>-- &gt; data Tree a = Empty | Leaf a | Node (Tree a) a (Tree a)</span>
+<a name="line-693"></a><span class='hs-comment'>--</span>
+<a name="line-694"></a><span class='hs-comment'>-- a suitable instance would be</span>
+<a name="line-695"></a><span class='hs-comment'>--</span>
+<a name="line-696"></a><span class='hs-comment'>-- &gt; instance Traversable Tree where</span>
+<a name="line-697"></a><span class='hs-comment'>-- &gt;    traverse f Empty = pure Empty</span>
+<a name="line-698"></a><span class='hs-comment'>-- &gt;    traverse f (Leaf x) = Leaf &lt;$&gt; f x</span>
+<a name="line-699"></a><span class='hs-comment'>-- &gt;    traverse f (Node l k r) = Node &lt;$&gt; traverse f l &lt;*&gt; f k &lt;*&gt; traverse f r</span>
+<a name="line-700"></a><span class='hs-comment'>--</span>
+<a name="line-701"></a><span class='hs-comment'>-- This definition works for any applicative functor in the co-domain of @f@,</span>
+<a name="line-702"></a><span class='hs-comment'>-- as the laws for '&lt;*&gt;' imply a form of associativity.</span>
+<a name="line-703"></a>
+<a name="line-704"></a><span class='hs-comment'>------------------</span>
+<a name="line-705"></a>
+<a name="line-706"></a><span class='hs-comment'>-- $construction</span>
+<a name="line-707"></a><span class='hs-comment'>--</span>
+<a name="line-708"></a><span class='hs-comment'>-- How do @Traversable@ functors manage to construct a new container of the</span>
+<a name="line-709"></a><span class='hs-comment'>-- same shape by sequencing effects over their elements?  Well, left-to-right</span>
+<a name="line-710"></a><span class='hs-comment'>-- traversal with sequencing of effects suggests induction from a base case, so</span>
+<a name="line-711"></a><span class='hs-comment'>-- the first question is what is the base case?  A @Traversable@ container with</span>
+<a name="line-712"></a><span class='hs-comment'>-- elements of type __@a@__ generally has some minimal form that is either</span>
+<a name="line-713"></a><span class='hs-comment'>-- "empty" or has just a single element (think "Data.List" vs.</span>
+<a name="line-714"></a><span class='hs-comment'>-- "Data.List.Nonempty").</span>
+<a name="line-715"></a><span class='hs-comment'>--</span>
+<a name="line-716"></a><span class='hs-comment'>-- * If the base case is empty (no associated first value of __@a@__) then</span>
+<a name="line-717"></a><span class='hs-comment'>--   traversal just reproduces the empty structure with no side effects,</span>
+<a name="line-718"></a><span class='hs-comment'>--   so we have:</span>
+<a name="line-719"></a><span class='hs-comment'>--</span>
+<a name="line-720"></a><span class='hs-comment'>--     &gt; traverse _ empty = pure empty</span>
+<a name="line-721"></a><span class='hs-comment'>--</span>
+<a name="line-722"></a><span class='hs-comment'>--     With the List monad, "empty" is __@[]@__, while with 'Maybe' it is</span>
+<a name="line-723"></a><span class='hs-comment'>--     'Nothing'.  With __@Either e a@__ we have an /empty/ case for each</span>
+<a name="line-724"></a><span class='hs-comment'>--     value of __@e@__.</span>
 <a name="line-725"></a><span class='hs-comment'>--</span>
-<a name="line-726"></a><span class='hs-comment'>-- &gt; traverse _ (Left e) = pure (Left e)</span>
-<a name="line-727"></a><span class='hs-comment'>-- &gt; traverse f (Right a) = Right &lt;$&gt; f a</span>
-<a name="line-728"></a><span class='hs-comment'>--</span>
-<a name="line-729"></a><span class='hs-comment'>-- Similarly, for List, we have:</span>
-<a name="line-730"></a><span class='hs-comment'>--</span>
-<a name="line-731"></a><span class='hs-comment'>-- &gt; traverse f [] = pure []</span>
-<a name="line-732"></a><span class='hs-comment'>-- &gt; traverse f [a] = fmap (:[]) (f a) = (:) &lt;$&gt; f a &lt;*&gt; pure []</span>
+<a name="line-726"></a><span class='hs-comment'>-- * If the base case is a __@singleton a@__, then 'traverse' can take that</span>
+<a name="line-727"></a><span class='hs-comment'>--   __@a@__, apply __@f :: a -&gt; F b@__ getting an __@F b@__, then</span>
+<a name="line-728"></a><span class='hs-comment'>--   __@fmap singleton@__ over that, getting __@F (singleton b)@__:</span>
+<a name="line-729"></a><span class='hs-comment'>--</span>
+<a name="line-730"></a><span class='hs-comment'>--     &gt; traverse f (singleton a) = singleton &lt;$&gt; f a</span>
+<a name="line-731"></a><span class='hs-comment'>--</span>
+<a name="line-732"></a><span class='hs-comment'>-- Since 'Maybe' and 'Either' are either empty or singletons, we have</span>
 <a name="line-733"></a><span class='hs-comment'>--</span>
-<a name="line-734"></a><span class='hs-comment'>-- What remains to be done is an inductive step beyond the empty and singleton</span>
-<a name="line-735"></a><span class='hs-comment'>-- cases.  For a concrete @Traversable@ functor @T@ we need to be able to</span>
-<a name="line-736"></a><span class='hs-comment'>-- extend our structure incrementally by filling in holes.  We can view a</span>
-<a name="line-737"></a><span class='hs-comment'>-- partially built structure __@t0 :: T a@__ as a function</span>
-<a name="line-738"></a><span class='hs-comment'>-- __@append :: a -&gt; T a@__ that takes one more element __@a@__ to insert into</span>
-<a name="line-739"></a><span class='hs-comment'>-- the container to the right of the existing elements to produce a larger</span>
-<a name="line-740"></a><span class='hs-comment'>-- structure.  Conversely, we can view an element @a@ as a function</span>
-<a name="line-741"></a><span class='hs-comment'>-- __@prepend :: T a -&gt; T a@__ of a partially built structure that inserts the</span>
-<a name="line-742"></a><span class='hs-comment'>-- element to the left of the existing elements.</span>
-<a name="line-743"></a><span class='hs-comment'>--</span>
-<a name="line-744"></a><span class='hs-comment'>-- Assuming that 'traverse' has already been defined on the partially built</span>
-<a name="line-745"></a><span class='hs-comment'>-- structure:</span>
-<a name="line-746"></a><span class='hs-comment'>--</span>
-<a name="line-747"></a><span class='hs-comment'>-- &gt; f0 = traverse f t0 :: F (T b)</span>
-<a name="line-748"></a><span class='hs-comment'>--</span>
-<a name="line-749"></a><span class='hs-comment'>-- we aim to define __@traverse f (append t0 a)@__ and/or</span>
-<a name="line-750"></a><span class='hs-comment'>-- __@traverse f (prepend a t0)@__.</span>
-<a name="line-751"></a><span class='hs-comment'>--</span>
-<a name="line-752"></a><span class='hs-comment'>-- We can lift @append@ and apply it to @f0@ to get:</span>
-<a name="line-753"></a><span class='hs-comment'>--</span>
-<a name="line-754"></a><span class='hs-comment'>-- &gt; append &lt;$&gt; f0 :: F (b -&gt; T b)</span>
-<a name="line-755"></a><span class='hs-comment'>--</span>
-<a name="line-756"></a><span class='hs-comment'>-- and from the /next/ element __@a@__ we can obtain __@f a :: F b@__, and</span>
-<a name="line-757"></a><span class='hs-comment'>-- this is where we'll make use of the applicative instance of @F@.  Adding</span>
-<a name="line-758"></a><span class='hs-comment'>-- one more element on the right is then:</span>
+<a name="line-734"></a><span class='hs-comment'>-- &gt; traverse _ Nothing = pure Nothing</span>
+<a name="line-735"></a><span class='hs-comment'>-- &gt; traverse f (Just a) = Just &lt;$&gt; f a</span>
+<a name="line-736"></a><span class='hs-comment'>--</span>
+<a name="line-737"></a><span class='hs-comment'>-- &gt; traverse _ (Left e) = pure (Left e)</span>
+<a name="line-738"></a><span class='hs-comment'>-- &gt; traverse f (Right a) = Right &lt;$&gt; f a</span>
+<a name="line-739"></a><span class='hs-comment'>--</span>
+<a name="line-740"></a><span class='hs-comment'>-- Similarly, for List, we have:</span>
+<a name="line-741"></a><span class='hs-comment'>--</span>
+<a name="line-742"></a><span class='hs-comment'>-- &gt; traverse f [] = pure []</span>
+<a name="line-743"></a><span class='hs-comment'>-- &gt; traverse f [a] = fmap (:[]) (f a) = (:) &lt;$&gt; f a &lt;*&gt; pure []</span>
+<a name="line-744"></a><span class='hs-comment'>--</span>
+<a name="line-745"></a><span class='hs-comment'>-- What remains to be done is an inductive step beyond the empty and singleton</span>
+<a name="line-746"></a><span class='hs-comment'>-- cases.  For a concrete @Traversable@ functor @T@ we need to be able to</span>
+<a name="line-747"></a><span class='hs-comment'>-- extend our structure incrementally by filling in holes.  We can view a</span>
+<a name="line-748"></a><span class='hs-comment'>-- partially built structure __@t0 :: T a@__ as a function</span>
+<a name="line-749"></a><span class='hs-comment'>-- __@append :: a -&gt; T a@__ that takes one more element __@a@__ to insert into</span>
+<a name="line-750"></a><span class='hs-comment'>-- the container to the right of the existing elements to produce a larger</span>
+<a name="line-751"></a><span class='hs-comment'>-- structure.  Conversely, we can view an element @a@ as a function</span>
+<a name="line-752"></a><span class='hs-comment'>-- __@prepend :: T a -&gt; T a@__ of a partially built structure that inserts the</span>
+<a name="line-753"></a><span class='hs-comment'>-- element to the left of the existing elements.</span>
+<a name="line-754"></a><span class='hs-comment'>--</span>
+<a name="line-755"></a><span class='hs-comment'>-- Assuming that 'traverse' has already been defined on the partially built</span>
+<a name="line-756"></a><span class='hs-comment'>-- structure:</span>
+<a name="line-757"></a><span class='hs-comment'>--</span>
+<a name="line-758"></a><span class='hs-comment'>-- &gt; f0 = traverse f t0 :: F (T b)</span>
 <a name="line-759"></a><span class='hs-comment'>--</span>
-<a name="line-760"></a><span class='hs-comment'>-- &gt; traverse f (append t0 a) = append &lt;$&gt; traverse f t0 &lt;*&gt; f a</span>
-<a name="line-761"></a><span class='hs-comment'>--</span>
-<a name="line-762"></a><span class='hs-comment'>-- while prepending an element on the left is:</span>
-<a name="line-763"></a><span class='hs-comment'>--</span>
-<a name="line-764"></a><span class='hs-comment'>-- &gt; traverse f (prepend a t0) = prepend &lt;$&gt; f a &lt;*&gt; traverse f t0</span>
-<a name="line-765"></a><span class='hs-comment'>--</span>
-<a name="line-766"></a><span class='hs-comment'>-- The (binary) @Tree@ instance example makes use of both, after defining the</span>
-<a name="line-767"></a><span class='hs-comment'>-- @Empty@ base case and the singleton @Leaf@ node case, non-empty internal</span>
-<a name="line-768"></a><span class='hs-comment'>-- nodes introduce both a prepended child node on the left and an appended</span>
-<a name="line-769"></a><span class='hs-comment'>-- child node on the right:</span>
+<a name="line-760"></a><span class='hs-comment'>-- we aim to define __@traverse f (append t0 a)@__ and/or</span>
+<a name="line-761"></a><span class='hs-comment'>-- __@traverse f (prepend a t0)@__.</span>
+<a name="line-762"></a><span class='hs-comment'>--</span>
+<a name="line-763"></a><span class='hs-comment'>-- We can lift @append@ and apply it to @f0@ to get:</span>
+<a name="line-764"></a><span class='hs-comment'>--</span>
+<a name="line-765"></a><span class='hs-comment'>-- &gt; append &lt;$&gt; f0 :: F (b -&gt; T b)</span>
+<a name="line-766"></a><span class='hs-comment'>--</span>
+<a name="line-767"></a><span class='hs-comment'>-- and from the /next/ element __@a@__ we can obtain __@f a :: F b@__, and</span>
+<a name="line-768"></a><span class='hs-comment'>-- this is where we'll make use of the applicative instance of @F@.  Adding</span>
+<a name="line-769"></a><span class='hs-comment'>-- one more element on the right is then:</span>
 <a name="line-770"></a><span class='hs-comment'>--</span>
-<a name="line-771"></a><span class='hs-comment'>-- &gt; traverse f (Node l k r) = Node &lt;$&gt; traverse f l &lt;*&gt; f k &lt;*&gt; traverse f r</span>
+<a name="line-771"></a><span class='hs-comment'>-- &gt; traverse f (append t0 a) = append &lt;$&gt; traverse f t0 &lt;*&gt; f a</span>
 <a name="line-772"></a><span class='hs-comment'>--</span>
-<a name="line-773"></a><span class='hs-comment'>-- The above definitions sequence the 'Applicative' effects of __@F@__ in the</span>
-<a name="line-774"></a><span class='hs-comment'>-- expected order while producing results of the expected shape __@T@__.</span>
-<a name="line-775"></a><span class='hs-comment'>--</span>
-<a name="line-776"></a><span class='hs-comment'>-- For lists we get the natural order of effects by using</span>
-<a name="line-777"></a><span class='hs-comment'>-- __@(prepend \&lt;$\&gt; f a)@__ as the operator and __@(traverse f as)@__ as the</span>
-<a name="line-778"></a><span class='hs-comment'>-- operand (the actual definition is written as an equivalent right fold</span>
-<a name="line-779"></a><span class='hs-comment'>-- in order to enable /fusion/ rules):</span>
-<a name="line-780"></a><span class='hs-comment'>--</span>
-<a name="line-781"></a><span class='hs-comment'>-- &gt; traverse f [] = pure []</span>
-<a name="line-782"></a><span class='hs-comment'>-- &gt; traverse f (a:as) = (:) &lt;$&gt; f a &lt;*&gt; traverse f as</span>
+<a name="line-773"></a><span class='hs-comment'>-- while prepending an element on the left is:</span>
+<a name="line-774"></a><span class='hs-comment'>--</span>
+<a name="line-775"></a><span class='hs-comment'>-- &gt; traverse f (prepend a t0) = prepend &lt;$&gt; f a &lt;*&gt; traverse f t0</span>
+<a name="line-776"></a><span class='hs-comment'>--</span>
+<a name="line-777"></a><span class='hs-comment'>-- The (binary) @Tree@ instance example makes use of both, after defining the</span>
+<a name="line-778"></a><span class='hs-comment'>-- @Empty@ base case and the singleton @Leaf@ node case, non-empty internal</span>
+<a name="line-779"></a><span class='hs-comment'>-- nodes introduce both a prepended child node on the left and an appended</span>
+<a name="line-780"></a><span class='hs-comment'>-- child node on the right:</span>
+<a name="line-781"></a><span class='hs-comment'>--</span>
+<a name="line-782"></a><span class='hs-comment'>-- &gt; traverse f (Node l k r) = Node &lt;$&gt; traverse f l &lt;*&gt; f k &lt;*&gt; traverse f r</span>
 <a name="line-783"></a><span class='hs-comment'>--</span>
-<a name="line-784"></a><span class='hs-comment'>-- The origin of the combinatorial product when __@F@__ is __@[]@__ should now</span>
-<a name="line-785"></a><span class='hs-comment'>-- be apparent, the /non-deterministic/ definition of @\&lt;*\&gt;@ for @List@ makes</span>
-<a name="line-786"></a><span class='hs-comment'>-- multiple independent choices for each element of the structure.</span>
-<a name="line-787"></a>
-<a name="line-788"></a><span class='hs-comment'>------------------</span>
-<a name="line-789"></a>
-<a name="line-790"></a><span class='hs-comment'>-- $laws</span>
-<a name="line-791"></a><span class='hs-comment'>-- A definition of 'traverse' must satisfy the following laws:</span>
-<a name="line-792"></a><span class='hs-comment'>--</span>
-<a name="line-793"></a><span class='hs-comment'>-- [Naturality]</span>
-<a name="line-794"></a><span class='hs-comment'>--   @t . 'traverse' f = 'traverse' (t . f)@</span>
-<a name="line-795"></a><span class='hs-comment'>--   for every applicative transformation @t@</span>
-<a name="line-796"></a><span class='hs-comment'>--</span>
-<a name="line-797"></a><span class='hs-comment'>-- [Identity]</span>
-<a name="line-798"></a><span class='hs-comment'>--   @'traverse' 'Identity' = 'Identity'@</span>
-<a name="line-799"></a><span class='hs-comment'>--</span>
-<a name="line-800"></a><span class='hs-comment'>-- [Composition]</span>
-<a name="line-801"></a><span class='hs-comment'>--   @'traverse' ('Data.Functor.Compose.Compose' . 'fmap' g . f)</span>
-<a name="line-802"></a><span class='hs-comment'>--     = 'Data.Functor.Compose.Compose' . 'fmap' ('traverse' g) . 'traverse' f@</span>
+<a name="line-784"></a><span class='hs-comment'>-- The above definitions sequence the 'Applicative' effects of __@F@__ in the</span>
+<a name="line-785"></a><span class='hs-comment'>-- expected order while producing results of the expected shape __@T@__.</span>
+<a name="line-786"></a><span class='hs-comment'>--</span>
+<a name="line-787"></a><span class='hs-comment'>-- For lists we get the natural order of effects by using</span>
+<a name="line-788"></a><span class='hs-comment'>-- __@(prepend \&lt;$\&gt; f a)@__ as the operator and __@(traverse f as)@__ as the</span>
+<a name="line-789"></a><span class='hs-comment'>-- operand (the actual definition is written as an equivalent right fold</span>
+<a name="line-790"></a><span class='hs-comment'>-- in order to enable /fusion/ rules):</span>
+<a name="line-791"></a><span class='hs-comment'>--</span>
+<a name="line-792"></a><span class='hs-comment'>-- &gt; traverse f [] = pure []</span>
+<a name="line-793"></a><span class='hs-comment'>-- &gt; traverse f (a:as) = (:) &lt;$&gt; f a &lt;*&gt; traverse f as</span>
+<a name="line-794"></a><span class='hs-comment'>--</span>
+<a name="line-795"></a><span class='hs-comment'>-- The origin of the combinatorial product when __@F@__ is __@[]@__ should now</span>
+<a name="line-796"></a><span class='hs-comment'>-- be apparent, the /non-deterministic/ definition of @\&lt;*\&gt;@ for @List@ makes</span>
+<a name="line-797"></a><span class='hs-comment'>-- multiple independent choices for each element of the structure.</span>
+<a name="line-798"></a>
+<a name="line-799"></a><span class='hs-comment'>------------------</span>
+<a name="line-800"></a>
+<a name="line-801"></a><span class='hs-comment'>-- $laws</span>
+<a name="line-802"></a><span class='hs-comment'>-- A definition of 'traverse' must satisfy the following laws:</span>
 <a name="line-803"></a><span class='hs-comment'>--</span>
-<a name="line-804"></a><span class='hs-comment'>-- A definition of 'sequenceA' must satisfy the following laws:</span>
-<a name="line-805"></a><span class='hs-comment'>--</span>
-<a name="line-806"></a><span class='hs-comment'>-- [Naturality]</span>
-<a name="line-807"></a><span class='hs-comment'>--   @t . 'sequenceA' = 'sequenceA' . 'fmap' t@</span>
-<a name="line-808"></a><span class='hs-comment'>--   for every applicative transformation @t@</span>
-<a name="line-809"></a><span class='hs-comment'>--</span>
-<a name="line-810"></a><span class='hs-comment'>-- [Identity]</span>
-<a name="line-811"></a><span class='hs-comment'>--   @'sequenceA' . 'fmap' 'Identity' = 'Identity'@</span>
-<a name="line-812"></a><span class='hs-comment'>--</span>
-<a name="line-813"></a><span class='hs-comment'>-- [Composition]</span>
-<a name="line-814"></a><span class='hs-comment'>--   @'sequenceA' . 'fmap' 'Data.Functor.Compose.Compose'</span>
-<a name="line-815"></a><span class='hs-comment'>--     = 'Data.Functor.Compose.Compose' . 'fmap' 'sequenceA' . 'sequenceA'@</span>
+<a name="line-804"></a><span class='hs-comment'>-- [Naturality]</span>
+<a name="line-805"></a><span class='hs-comment'>--   @t . 'traverse' f = 'traverse' (t . f)@</span>
+<a name="line-806"></a><span class='hs-comment'>--   for every applicative transformation @t@</span>
+<a name="line-807"></a><span class='hs-comment'>--</span>
+<a name="line-808"></a><span class='hs-comment'>-- [Identity]</span>
+<a name="line-809"></a><span class='hs-comment'>--   @'traverse' 'Identity' = 'Identity'@</span>
+<a name="line-810"></a><span class='hs-comment'>--</span>
+<a name="line-811"></a><span class='hs-comment'>-- [Composition]</span>
+<a name="line-812"></a><span class='hs-comment'>--   @'traverse' ('Data.Functor.Compose.Compose' . 'fmap' g . f)</span>
+<a name="line-813"></a><span class='hs-comment'>--     = 'Data.Functor.Compose.Compose' . 'fmap' ('traverse' g) . 'traverse' f@</span>
+<a name="line-814"></a><span class='hs-comment'>--</span>
+<a name="line-815"></a><span class='hs-comment'>-- A definition of 'sequenceA' must satisfy the following laws:</span>
 <a name="line-816"></a><span class='hs-comment'>--</span>
-<a name="line-817"></a><span class='hs-comment'>-- where an /applicative transformation/ is a function</span>
-<a name="line-818"></a><span class='hs-comment'>--</span>
-<a name="line-819"></a><span class='hs-comment'>-- @t :: (Applicative f, Applicative g) =&gt; f a -&gt; g a@</span>
+<a name="line-817"></a><span class='hs-comment'>-- [Naturality]</span>
+<a name="line-818"></a><span class='hs-comment'>--   @t . 'sequenceA' = 'sequenceA' . 'fmap' t@</span>
+<a name="line-819"></a><span class='hs-comment'>--   for every applicative transformation @t@</span>
 <a name="line-820"></a><span class='hs-comment'>--</span>
-<a name="line-821"></a><span class='hs-comment'>-- preserving the 'Applicative' operations, i.e.</span>
-<a name="line-822"></a><span class='hs-comment'>--</span>
-<a name="line-823"></a><span class='hs-comment'>-- @</span>
-<a name="line-824"></a><span class='hs-comment'>-- t ('pure' x) = 'pure' x</span>
-<a name="line-825"></a><span class='hs-comment'>-- t (f '&lt;*&gt;' x) = t f '&lt;*&gt;' t x</span>
-<a name="line-826"></a><span class='hs-comment'>-- @</span>
+<a name="line-821"></a><span class='hs-comment'>-- [Identity]</span>
+<a name="line-822"></a><span class='hs-comment'>--   @'sequenceA' . 'fmap' 'Identity' = 'Identity'@</span>
+<a name="line-823"></a><span class='hs-comment'>--</span>
+<a name="line-824"></a><span class='hs-comment'>-- [Composition]</span>
+<a name="line-825"></a><span class='hs-comment'>--   @'sequenceA' . 'fmap' 'Data.Functor.Compose.Compose'</span>
+<a name="line-826"></a><span class='hs-comment'>--     = 'Data.Functor.Compose.Compose' . 'fmap' 'sequenceA' . 'sequenceA'@</span>
 <a name="line-827"></a><span class='hs-comment'>--</span>
-<a name="line-828"></a><span class='hs-comment'>-- and the identity functor 'Identity' and composition functors</span>
-<a name="line-829"></a><span class='hs-comment'>-- 'Data.Functor.Compose.Compose' are from "Data.Functor.Identity" and</span>
-<a name="line-830"></a><span class='hs-comment'>-- "Data.Functor.Compose".</span>
+<a name="line-828"></a><span class='hs-comment'>-- where an /applicative transformation/ is a function</span>
+<a name="line-829"></a><span class='hs-comment'>--</span>
+<a name="line-830"></a><span class='hs-comment'>-- @t :: (Applicative f, Applicative g) =&gt; f a -&gt; g a@</span>
 <a name="line-831"></a><span class='hs-comment'>--</span>
-<a name="line-832"></a><span class='hs-comment'>-- A result of the naturality law is a purity law for 'traverse'</span>
+<a name="line-832"></a><span class='hs-comment'>-- preserving the 'Applicative' operations, i.e.</span>
 <a name="line-833"></a><span class='hs-comment'>--</span>
-<a name="line-834"></a><span class='hs-comment'>-- @'traverse' 'pure' = 'pure'@</span>
-<a name="line-835"></a><span class='hs-comment'>--</span>
-<a name="line-836"></a><span class='hs-comment'>-- (The naturality law is implied by parametricity and thus so is the</span>
-<a name="line-837"></a><span class='hs-comment'>-- purity law [1, p15].)</span>
+<a name="line-834"></a><span class='hs-comment'>-- @</span>
+<a name="line-835"></a><span class='hs-comment'>-- t ('pure' x) = 'pure' x</span>
+<a name="line-836"></a><span class='hs-comment'>-- t (f '&lt;*&gt;' x) = t f '&lt;*&gt;' t x</span>
+<a name="line-837"></a><span class='hs-comment'>-- @</span>
 <a name="line-838"></a><span class='hs-comment'>--</span>
-<a name="line-839"></a><span class='hs-comment'>-- The superclass instances should satisfy the following:</span>
-<a name="line-840"></a><span class='hs-comment'>--</span>
-<a name="line-841"></a><span class='hs-comment'>--  * In the 'Functor' instance, 'fmap' should be equivalent to traversal</span>
-<a name="line-842"></a><span class='hs-comment'>--    with the identity applicative functor ('fmapDefault').</span>
-<a name="line-843"></a><span class='hs-comment'>--</span>
-<a name="line-844"></a><span class='hs-comment'>--  * In the 'Foldable' instance, 'Data.Foldable.foldMap' should be</span>
-<a name="line-845"></a><span class='hs-comment'>--    equivalent to traversal with a constant applicative functor</span>
-<a name="line-846"></a><span class='hs-comment'>--    ('foldMapDefault').</span>
-<a name="line-847"></a>
-<a name="line-848"></a><span class='hs-comment'>------------------</span>
-<a name="line-849"></a>
-<a name="line-850"></a><span class='hs-comment'>-- $also</span>
+<a name="line-839"></a><span class='hs-comment'>-- and the identity functor 'Identity' and composition functors</span>
+<a name="line-840"></a><span class='hs-comment'>-- 'Data.Functor.Compose.Compose' are from "Data.Functor.Identity" and</span>
+<a name="line-841"></a><span class='hs-comment'>-- "Data.Functor.Compose".</span>
+<a name="line-842"></a><span class='hs-comment'>--</span>
+<a name="line-843"></a><span class='hs-comment'>-- A result of the naturality law is a purity law for 'traverse'</span>
+<a name="line-844"></a><span class='hs-comment'>--</span>
+<a name="line-845"></a><span class='hs-comment'>-- @'traverse' 'pure' = 'pure'@</span>
+<a name="line-846"></a><span class='hs-comment'>--</span>
+<a name="line-847"></a><span class='hs-comment'>-- (The naturality law is implied by parametricity and thus so is the</span>
+<a name="line-848"></a><span class='hs-comment'>-- purity law [1, p15].)</span>
+<a name="line-849"></a><span class='hs-comment'>--</span>
+<a name="line-850"></a><span class='hs-comment'>-- The superclass instances should satisfy the following:</span>
 <a name="line-851"></a><span class='hs-comment'>--</span>
-<a name="line-852"></a><span class='hs-comment'>--  * [1] \"The Essence of the Iterator Pattern\",</span>
-<a name="line-853"></a><span class='hs-comment'>--    by Jeremy Gibbons and Bruno Oliveira,</span>
-<a name="line-854"></a><span class='hs-comment'>--    in /Mathematically-Structured Functional Programming/, 2006, online at</span>
-<a name="line-855"></a><span class='hs-comment'>--    &lt;<a href="http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/#iterator">http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/#iterator</a>&gt;.</span>
-<a name="line-856"></a><span class='hs-comment'>--</span>
-<a name="line-857"></a><span class='hs-comment'>--  * \"Applicative Programming with Effects\",</span>
-<a name="line-858"></a><span class='hs-comment'>--    by Conor McBride and Ross Paterson,</span>
-<a name="line-859"></a><span class='hs-comment'>--    /Journal of Functional Programming/ 18:1 (2008) 1-13, online at</span>
-<a name="line-860"></a><span class='hs-comment'>--    &lt;<a href="http://www.soi.city.ac.uk/~ross/papers/Applicative.html">http://www.soi.city.ac.uk/~ross/papers/Applicative.html</a>&gt;.</span>
-<a name="line-861"></a><span class='hs-comment'>--</span>
-<a name="line-862"></a><span class='hs-comment'>--  * \"An Investigation of the Laws of Traversals\",</span>
-<a name="line-863"></a><span class='hs-comment'>--    by Mauro Jaskelioff and Ondrej Rypacek,</span>
-<a name="line-864"></a><span class='hs-comment'>--    in /Mathematically-Structured Functional Programming/, 2012, online at</span>
-<a name="line-865"></a><span class='hs-comment'>--    &lt;<a href="http://arxiv.org/pdf/1202.2919">http://arxiv.org/pdf/1202.2919</a>&gt;.</span>
+<a name="line-852"></a><span class='hs-comment'>--  * In the 'Functor' instance, 'fmap' should be equivalent to traversal</span>
+<a name="line-853"></a><span class='hs-comment'>--    with the identity applicative functor ('fmapDefault').</span>
+<a name="line-854"></a><span class='hs-comment'>--</span>
+<a name="line-855"></a><span class='hs-comment'>--  * In the 'Foldable' instance, 'Data.Foldable.foldMap' should be</span>
+<a name="line-856"></a><span class='hs-comment'>--    equivalent to traversal with a constant applicative functor</span>
+<a name="line-857"></a><span class='hs-comment'>--    ('foldMapDefault').</span>
+<a name="line-858"></a>
+<a name="line-859"></a><span class='hs-comment'>------------------</span>
+<a name="line-860"></a>
+<a name="line-861"></a><span class='hs-comment'>-- $also</span>
+<a name="line-862"></a><span class='hs-comment'>--</span>
+<a name="line-863"></a><span class='hs-comment'>--  * [1] \"The Essence of the Iterator Pattern\",</span>
+<a name="line-864"></a><span class='hs-comment'>--    by Jeremy Gibbons and Bruno Oliveira,</span>
+<a name="line-865"></a><span class='hs-comment'>--    in /Mathematically-Structured Functional Programming/, 2006, online at</span>
+<a name="line-866"></a><span class='hs-comment'>--    &lt;<a href="http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/#iterator">http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/#iterator</a>&gt;.</span>
+<a name="line-867"></a><span class='hs-comment'>--</span>
+<a name="line-868"></a><span class='hs-comment'>--  * \"Applicative Programming with Effects\",</span>
+<a name="line-869"></a><span class='hs-comment'>--    by Conor McBride and Ross Paterson,</span>
+<a name="line-870"></a><span class='hs-comment'>--    /Journal of Functional Programming/ 18:1 (2008) 1-13, online at</span>
+<a name="line-871"></a><span class='hs-comment'>--    &lt;<a href="http://www.soi.city.ac.uk/~ross/papers/Applicative.html">http://www.soi.city.ac.uk/~ross/papers/Applicative.html</a>&gt;.</span>
+<a name="line-872"></a><span class='hs-comment'>--</span>
+<a name="line-873"></a><span class='hs-comment'>--  * \"An Investigation of the Laws of Traversals\",</span>
+<a name="line-874"></a><span class='hs-comment'>--    by Mauro Jaskelioff and Ondrej Rypacek,</span>
+<a name="line-875"></a><span class='hs-comment'>--    in /Mathematically-Structured Functional Programming/, 2012, online at</span>
+<a name="line-876"></a><span class='hs-comment'>--    &lt;<a href="http://arxiv.org/pdf/1202.2919">http://arxiv.org/pdf/1202.2919</a>&gt;.</span>
 </pre></body>
 </html>

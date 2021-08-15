@@ -156,24 +156,18 @@
 <a name="line-147"></a><span class='hs-comment'>{- $notes
 <a name="line-148"></a>
 <a name="line-149"></a>A finalizer is not always called after its weak pointer\'s object becomes
-<a name="line-150"></a>unreachable. There are two situations that can cause this:
-<a name="line-151"></a>
-<a name="line-152"></a> * If the object becomes unreachable right before the program exits,
-<a name="line-153"></a>   then GC may not be performed. Finalizers run during GC, so finalizers
-<a name="line-154"></a>   associated with the object do not run if GC does not happen.
-<a name="line-155"></a>
-<a name="line-156"></a> * If a finalizer throws an exception, subsequent finalizers that had
-<a name="line-157"></a>   been queued to run after it do not get run. This behavior may change
-<a name="line-158"></a>   in a future release. See issue &lt;https://gitlab.haskell.org/ghc/ghc/issues/13167 13167&gt;
-<a name="line-159"></a>   on the issue tracker. Writing a finalizer that throws exceptions is
-<a name="line-160"></a>   discouraged.
+<a name="line-150"></a>unreachable. If the object becomes unreachable right before the program exits,
+<a name="line-151"></a>then GC may not be performed. Finalizers run during GC, so finalizers associated
+<a name="line-152"></a>with the object do not run if GC does not happen.
+<a name="line-153"></a>
+<a name="line-154"></a>Other than the above caveat, users can always expect that a finalizer will be
+<a name="line-155"></a>run after its weak pointer\'s object becomes unreachable.
+<a name="line-156"></a>
+<a name="line-157"></a>If a finalizer throws an exception, the exception is silently caught without
+<a name="line-158"></a>notice. See the commit of issue
+<a name="line-159"></a>&lt;https://gitlab.haskell.org/ghc/ghc/-/issues/13167 13167&gt; for details. Writing a
+<a name="line-160"></a>finalizer that throws exceptions is discouraged.
 <a name="line-161"></a>
-<a name="line-162"></a>Other than these two caveats, users can always expect that a finalizer
-<a name="line-163"></a>will be run after its weak pointer\'s object becomes unreachable. However,
-<a name="line-164"></a>the second caveat means that users need to trust that all of their
-<a name="line-165"></a>transitive dependencies do not throw exceptions in finalizers, since
-<a name="line-166"></a>any finalizers can end up queued together.
-<a name="line-167"></a>
-<a name="line-168"></a>-}</span>
+<a name="line-162"></a>-}</span>
 </pre></body>
 </html>
