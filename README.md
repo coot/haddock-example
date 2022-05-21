@@ -1,7 +1,7 @@
 Haddock example
 ===============
 
-Example how to build haddocs for multiple cabal packages.
+Example how to build haddocks for multiple cabal packages, or check the [haddock manual][haddock-manual]
 
 Requirements  
 ------------
@@ -19,10 +19,20 @@ To build the docs directory:
 
 ```
 rm rf docs/*
-cabal haddock --with-compiler GHC_9 --with-haddock=${HADDOCK} --haddock-html --haddock-quickjump all
+cabal haddock --with-compiler GHC_9 \
+              --with-haddock=${HADDOCK} \
+              --haddock-html \
+              --haddock-quickjump \
+              --haddock-option='--use-index=../doc-index.html' \
+              --haddock-option='--use-contents=../index.html' \
+              --haddock-option='--base-url=..' \
+              all
+
 cp -r dist-newstyle/build/x86_64-linux/ghc-9.0.1/package-a-0.1.0.0/doc/html/package-a/ docs
 cp -r dist-newstyle/build/x86_64-linux/ghc-9.0.1/package-b-0.1.0.0/doc/html/package-b/ docs
-${HADDOCK} -o docs --quickjump --gen-index --gen-contents --read-interface=package-a,docs/package-a/package-a.haddock --read-interface=package-b,docs/package-b/package-b.haddock
+${HADDOCK} -o docs --quickjump --gen-index --gen-contents \
+           --read-interface=package-a,docs/package-a/package-a.haddock \
+           --read-interface=package-b,docs/package-b/package-b.haddock
 ```
 
 To include `base` documentation, copy `base` docs from `~/.ghcup/ghc/9.0.1/share/doc/ghc-9.0.1/html/librarires/base-4.15.0.0` to `docs/base` and also include `--read-interface` option:
@@ -35,3 +45,5 @@ And serve `docs` with some http server, e.g. `http-server docs`.
 ## Notes
 
 `--read-interface=PATH,...`: the `PATH` must be relative url of a package it points to (relative to `docs` directory).
+
+[haddock-manual]: https://haskell-haddock.readthedocs.io/en/latest/multi-components.html
